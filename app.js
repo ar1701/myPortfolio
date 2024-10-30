@@ -119,6 +119,9 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 // Your portfolioData object (as shown in your code)
+const portfolioData = {
+  // ... your existing portfolio data
+};
 
 // Universal route - will catch all requests
 app.get('*', (req, res) => {
