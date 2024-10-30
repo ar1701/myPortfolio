@@ -110,6 +110,29 @@ const portfolioData = {
 const ejs = require('ejs');
 const fs = require('fs');
 const path = require('path');
+const express = require('express');
+const app = express();
+
+app.set('view engine', 'ejs');
+
+// Serve static files from 'public' directory
+app.use(express.static('public'));
+
+// Your portfolioData object (as shown in your code)
+const portfolioData = {
+  // ... your existing portfolio data
+};
+
+// Universal route - will catch all requests
+app.get('*', (req, res) => {
+  res.render('index', { data: portfolioData });
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 ejs.renderFile('views/index.ejs', { data: portfolioData }, (err, html) => {
   if (err) throw err;
