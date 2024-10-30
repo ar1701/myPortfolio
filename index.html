@@ -4,186 +4,362 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayush Raj - Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #282828;
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #383838;
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #000;
+            padding: 24px;
+            border-right: 1px solid #282828;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: #b3b3b3;
+            text-decoration: none;
+            padding: 8px 0;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+        }
+
+        .social-links {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid #282828;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            background: linear-gradient(to bottom, #121212, #000);
+            overflow-y: auto;
+        }
+
+        /* Header */
+        .header {
+            background: #121212;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .contact-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Content sections */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 32px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            color: #b3b3b3;
+            font-size: 1.25rem;
+        }
+
+        .section {
+            background: #181818;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            color: #1DB954;
+        }
+
+        .experience-item {
+            margin-bottom: 24px;
+        }
+
+        .experience-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .company {
+            color: #1DB954;
+            margin-bottom: 4px;
+        }
+
+        .date {
+            color: #b3b3b3;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            list-style-position: inside;
+            color: #b3b3b3;
+            margin-left: 16px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .icon-green { color: #1DB954; }
+        .icon-blue { color: #4A90E2; }
+        .icon-purple { color: #9B51E0; }
+        .icon-yellow { color: #F2C94C; }
+    </style>
 </head>
-<body class="bg-gray-100">
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <!-- Header Section -->
-        <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold mb-4">Ayush Raj</h1>
-            <div class="flex justify-center space-x-4 text-gray-600">
-                <a href="mailto:ayushrajj30@gmail.com" class="hover:text-blue-600">ayushrajj30@gmail.com</a>
-                <span>|</span>
-                <span>+91 6203392086</span>
-                <span>|</span>
-                <span>Kochi, India</span>
-            </div>
-            <div class="flex justify-center space-x-4 mt-2">
-                <a href="https://github.com/ar1701" class="text-blue-600 hover:text-blue-800">GitHub</a>
-                <a href="https://www.linkedin.com/in/ayush-raj17" class="text-blue-600 hover:text-blue-800">LinkedIn</a>
-            </div>
-        </header>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <a href="#" class="logo">
+                <i data-lucide="music" class="icon-green"></i>
+                <span>Ayush Raj</span>
+            </a>
+            
+            <a href="#about" class="nav-link">
+                <i data-lucide="home"></i>
+                <span>About</span>
+            </a>
+            <a href="#experience" class="nav-link">
+                <i data-lucide="briefcase"></i>
+                <span>Experience</span>
+            </a>
+            <a href="#education" class="nav-link">
+                <i data-lucide="library"></i>
+                <span>Education</span>
+            </a>
+            <a href="#projects" class="nav-link">
+                <i data-lucide="plus-square"></i>
+                <span>Projects</span>
+            </a>
+            <a href="#awards" class="nav-link">
+                <i data-lucide="award"></i>
+                <span>Awards</span>
+            </a>
 
-        <!-- Education Section -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 border-b-2 pb-2">Education</h2>
-            <div>
-                <h3 class="text-xl font-semibold">Bachelor of Technology in Computer Science & Engineering</h3>
-                <p class="text-gray-600">Cochin University of Science and Technology</p>
-                <p class="text-gray-600">Oct 2022 – May 2026 | 3rd Year (Penultimate Year)</p>
-                <p class="font-semibold">CGPA: 9.6/10</p>
-                <ul class="list-disc ml-6 mt-2">
-                    <li>Listed among Top 10% Students in the Batch</li>
-                    <li>Team HORIZON Represented INDIA at Robotics Competition ERC'24 in Poland</li>
-                </ul>
+            <div class="social-links">
+                <a href="https://github.com/ar1701" target="_blank" class="nav-link">
+                    <i data-lucide="github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/ayush-raj17" target="_blank" class="nav-link">
+                    <i data-lucide="linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:ayushrajj30@gmail.com" class="nav-link">
+                    <i data-lucide="mail"></i>
+                    <span>Email</span>
+                </a>
             </div>
-        </section>
+        </nav>
 
-        <!-- Experience Section -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 border-b-2 pb-2">Experience</h2>
-            <div class="space-y-6">
-                <div>
-                    <h3 class="text-xl font-semibold">Software Engineering Intern</h3>
-                    <p class="text-gray-600">Horizon Mars Rover, CUSAT | Nov 2023 - Present</p>
-                    <ul class="list-disc ml-6 mt-2">
-                        <li>Developed URDF - a file describes the visual, geometric properties and kinematic joint of a Robotic Arm</li>
-                        <li>Created using Unified Robotics Description Format & XML and successfully designed the software</li>
-                        <li>Accomplished Proper Working of Robotic Arm controlled by Arduino Due & Servo Motors by running ROS</li>
-                        <li>Acquired Data Visualization Skill and increases my efficiency by 30%</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold">AI - ML Intern</h3>
-                    <p class="text-gray-600">IBM Skillsbuild | June 2024 - July 2024</p>
-                    <ul class="list-disc ml-6 mt-2">
-                        <li>Developed a strong Foundation of Neural Networks, Natural Language Processing(NLP), LLMs & GenAI</li>
-                        <li>Build a 20% faster fine tuned ChatBot using IBM Watson Studio & a Kidney Stone Detector ML Model</li>
-                        <li>Reduced failures by 25% due to implementation of IBM Pre-built Automation tools</li>
-                        <li>Integrated the ChatBot in a Food-Match Web Portal which was fine tuned for that particular website</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <a href="mailto:ayushrajj30@gmail.com">
+                    <button class="contact-btn">Contact Me</button>
+                </a>
+            </header>
 
-        <!-- Leadership Section -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 border-b-2 pb-2">Leadership</h2>
-            <div class="space-y-6">
-                <div>
-                    <h3 class="text-xl font-semibold">SIG AI Lead</h3>
-                    <p class="text-gray-600">IEEE Execom'24 | Jun 2024 – Present</p>
-                    <ul class="list-disc ml-6 mt-2">
-                        <li>Responsible for Organizing Tech Events related to AI in the College along with the other IEEE Leads</li>
-                        <li>Took Sessions for Juniors to get them familiarized with Artificial Intelligence and Machine Learning</li>
-                        <li>Improved my Problem Solving Skills by 40% and learned to Work in a Team Environment</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold">Backend Developer</h3>
-                    <p class="text-gray-600">TedxCUSAT | May 2024 – Present</p>
-                    <ul class="list-disc ml-6 mt-2">
-                        <li>TedxCUSAT is a club which invites Tech Speakers in our College based on recent technical trends</li>
-                        <li>Along with my Teammates Designed a fully functional Backend System for the Web Application of TedxCUSAT</li>
-                        <li>Improved my Communication Skills by 50% and got the exposure of a Professional Organization</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 border-b-2 pb-2">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold">EduFlex (2024)</h3>
-                    <p class="text-gray-600 mb-2">Web Application to learn & get educational tools for free</p>
-                    <p class="mb-2">A MERN Stack, Vertex AI & Gemini API Project that leverages Problem Solving Tools, NEP Syllabus Generator, AI Chatbot, Grading System & more</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">React</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Node.js</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">MongoDB</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Vertex AI</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Gemini API</span>
+            <div class="content">
+                <!-- Hero Section -->
+                <section class="hero">
+                    <h1>Ayush Raj</h1>
+                    <p>Software Engineering Student & AI Enthusiast</p>
+                    <div style="margin-top: 24px; display: flex; justify-content: center; gap: 16px;">
+                        <i data-lucide="terminal" class="icon-green"></i>
+                        <i data-lucide="code-2" class="icon-blue"></i>
+                        <i data-lucide="award" class="icon-purple"></i>
                     </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold">Preventive AI (2024)</h3>
-                    <p class="text-gray-600 mb-2">AI platform for early cancer detection and personalized treatment insights</p>
-                    <p class="mb-2">Combines medical imaging, genomic data, and EHRs. Built with React, Node, MongoDB, and TensorFlow Serving</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">React</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Node.js</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">MongoDB</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">TensorFlow</span>
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow">
-                    <h3 class="text-xl font-semibold">Hack-Match (2024)</h3>
-                    <p class="text-gray-600 mb-2">Online Platform to find teammates for tech competitions</p>
-                    <p class="mb-2">Created using EJS templating lang, a Node.js backend with Express/MongoDB & Python for searching mates</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">EJS</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Node.js</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Express</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">MongoDB</span>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Python</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <!-- Awards Section -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 border-b-2 pb-2">Awards</h2>
-            <div class="space-y-4">
-                <div>
-                    <h3 class="text-xl font-semibold">GDG Build With AI Hackathon Winner</h3>
-                    <p class="text-gray-600">April 2024</p>
-                    <p>Winner among 500+ participants nationwide for Best Project and Management</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold">Make-A-Ton 7.0 Winner</h3>
-                    <p class="text-gray-600">October 2024</p>
-                    <p>Secured 3rd Position and Track Winner in South India's Largest Hackathon by MLH</p>
-                </div>
-            </div>
-        </section>
+                <!-- Education -->
+                <section id="education" class="section">
+                    <h2 class="section-title">
+                        <i data-lucide="graduation-cap" class="icon-green"></i>
+                        Education
+                    </h2>
+                    <div class="experience-item">
+                        <h3>Cochin University of Science and Technology</h3>
+                        <p class="company">B.Tech in Computer Science & Engineering</p>
+                        <p class="date">Oct 2022 – May 2026 | CGPA: 9.6/10</p>
+                        <ul>
+                            <li>Listed among Top 10% Students in the Batch</li>
+                            <li>Team HORIZON Represented INDIA at Robotics Competition ERC'24 in Poland</li>
+                        </ul>
+                    </div>
+                </section>
 
-        <!-- Skills Section -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 border-b-2 pb-2">Skills</h2>
-            <div class="space-y-4">
-                <div>
-                    <h3 class="text-xl font-semibold">Languages</h3>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span class="bg-gray-200 px-3 py-1 rounded">Java (OOP)</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">JavaScript</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">HTML/CSS</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">C/C++</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">SQL</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">Python</span>
+                <!-- Experience -->
+                <section id="experience" class="section">
+                    <h2 class="section-title">
+                        <i data-lucide="briefcase" class="icon-blue"></i>
+                        Professional Experience
+                    </h2>
+                    <div class="experience-item">
+                        <h3>Software Engineering Intern</h3>
+                        <p class="company">Horizon Mars Rover, CUSAT</p>
+                        <p class="date">Nov 2023 - Present</p>
+                        <ul>
+                            <li>Developed URDF for Robotic Arm control</li>
+                            <li>Created using Unified Robotics Description Format & XML</li>
+                            <li>Implemented Arduino Due & Servo Motors control using ROS</li>
+                        </ul>
                     </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold">Technical Skills</h3>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span class="bg-gray-200 px-3 py-1 rounded">Git</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">Data Structures</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">Algorithms</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">Bootstrap</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">Vertex AI</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">Node.js</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">Express.js</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">Linux</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">Problem Solving</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">NLP</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">AI</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded">Machine Learning</span>
+                    <div class="experience-item">
+                        <h3>AI - ML Intern</h3>
+                        <p class="company">IBM Skillsbuild</p>
+                        <p class="date">June 2024 - July 2024</p>
+                        <ul>
+                            <li>Built a fine-tuned ChatBot using IBM Watson Studio</li>
+                            <li>Developed Kidney Stone Detector ML Model</li>
+                            <li>Integrated ChatBot in Food-Match Web Portal</li>
+                        </ul>
                     </div>
-                </div>
+                </section>
+
+                <!-- Projects -->
+                <section id="projects" class="section">
+                    <h2 class="section-title">
+                        <i data-lucide="code-2" class="icon-purple"></i>
+                        Personal Projects
+                    </h2>
+                    <div class="experience-item">
+                        <h3>EduFlex (2024)</h3>
+                        <p>Web Application for free educational tools using MERN Stack, Vertex AI & Gemini API</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Preventive AI (2024)</h3>
+                        <p>AI platform for early cancer detection using React, Node, MongoDB, and TensorFlow</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Hack-Match (2024)</h3>
+                        <p>Platform for finding hackathon teammates using EJS, Node.js, Express/MongoDB & Python</p>
+                    </div>
+                </section>
+
+                <!-- Awards -->
+                <section id="awards" class="section">
+                    <h2 class="section-title">
+                        <i data-lucide="award" class="icon-yellow"></i>
+                        Awards
+                    </h2>
+                    <div class="experience-item">
+                        <h3>GDG Build With AI Hackathon Winner</h3>
+                        <p>Winner among 500+ participants for Best Project and Management</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Make-A-Ton 7.0 Winner</h3>
+                        <p>3rd Position and Track Winner at South India's Largest Hackathon</p>
+                    </div>
+                </section>
+
+                <!-- Skills -->
+                <section class="section">
+                    <h2 class="section-title">
+                        <i data-lucide="terminal" class="icon-green"></i>
+                        Skills
+                    </h2>
+                    <div class="skills-grid">
+                        <div>
+                            <h3>Languages</h3>
+                            <p>Java, JavaScript, HTML/CSS, C/C++, SQL, Python</p>
+                        </div>
+                        <div>
+                            <h3>Technical Skills</h3>
+                            <p>GIT, Data Structures, Algorithms, Bootstrap, Vertex AI, Node.js, Express.js, Linux, Problem Solving, NLP, AI, Machine Learning</p>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
+        </main>
     </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
