@@ -122,3 +122,181 @@
         transform: translateY(-50px);
     }
 }
+
+.ibm{
+    background-color: thistle;
+    margin-top: 90px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0);
+    }
+    100% {
+        transform: translateY(-100%) translateX(-100%) rotate(360deg);
+    }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Main styles */
+.experience-section {
+    background-color: rgba(31, 41, 55, 0.5);
+    padding: 5rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    background: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 6s linear infinite;
+}
+
+.experience-card {
+    background-color: rgba(55, 65, 81, 0.5);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slide-up 0.8s ease forwards;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.experience-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #60a5fa;
+}
+
+.experience-company {
+    color: #d1d5db;
+    margin-top: 0.25rem;
+}
+
+.experience-period {
+    color: #9ca3af;
+}
+
+.experience-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.experience-details.expanded {
+    max-height: 1000px;
+}
+
+.details-list {
+    color: #d1d5db;
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.details-list li {
+    margin-bottom: 0.5rem;
+}
+
+.view-more-btn {
+    background-color: transparent;
+    border: 1px solid #60a5fa;
+    color: #60a5fa;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.view-more-btn:hover {
+    background-color: rgba(96, 165, 250, 0.1);
+}
+
+.certificate-link {
+    display: inline-flex;
+    align-items: center;
+    color: #60a5fa;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.certificate-link:hover {
+    text-decoration: underline;
+}
+
+@media (mix-width: 600x) {
+   
+    
+    .ibm {
+        width: 1rem;
+        height: 1rem;
+        margin-left: 1rem;
+        flex-shrink: 0;
+    }
+    
+ 
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .experience-card {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .experience-content {
+        flex: 1;
+    }
+    
+    .experience-image {
+        width: 8rem;
+        height: 8rem;
+        margin-left: 1rem;
+        flex-shrink: 0;
+    }
+    
+    .experience-details {
+        max-height: none;
+        overflow: visible;
+    }
+    
+    .view-more-btn {
+        display: none;
+    }
+}
+
