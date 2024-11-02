@@ -1,35 +1,35 @@
 @keyframes slide {
     0% {
-      transform: translateY(0) translateX(0) rotate(0);
+        transform: translateY(0) translateX(0) rotate(0);
     }
     100% {
-      transform: translateY(-100%) translateX(-100%) rotate(360deg);
+        transform: translateY(-100%) translateX(-100%) rotate(360deg);
     }
-  }
+}
 
-  .animate-slide {
+.animate-slide {
     animation: slide 50s linear infinite;
-  }
+}
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
+/* Custom scrollbar */
+::-webkit-scrollbar {
     width: 8px;
-  }
+}
 
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: #1a1a1a;
-  }
+}
 
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #3b82f6;
     border-radius: 4px;
-  }
+}
 
-  ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: #2563eb;
-  }
+}
 
-  @keyframes gradient {
+@keyframes gradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
@@ -61,7 +61,6 @@
     transform: scale(1.1); /* Existing zoom effect */
 }
 
-
 .bg-300\% {
     background-size: 300% 100%;
 }
@@ -80,7 +79,6 @@
 .animate-slide-up {
     animation: slide-up 0.8s ease forwards;
 }
-
 
 @keyframes profile-picture {
     0% {
@@ -113,7 +111,6 @@
     transition: color 0.3s ease;
 }
 
-
 @keyframes particles {
     0% {
         transform: translateY(0);
@@ -123,35 +120,9 @@
     }
 }
 
-.ibm{
+.ibm {
     background-color: thistle;
     margin-top: 90px;
-}
-
-@keyframes slide {
-    0% {
-        transform: translateY(0) translateX(0) rotate(0);
-    }
-    100% {
-        transform: translateY(-100%) translateX(-100%) rotate(360deg);
-    }
-}
-
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes slide-up {
-    0% {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 /* Main styles */
@@ -259,17 +230,65 @@
     text-decoration: underline;
 }
 
-@media (mix-width: 600x) {
-   
-    
-    .ibm {
-        width: 1rem;
-        height: 1rem;
-        margin-left: 1rem;
-        flex-shrink: 0;
+/* Desktop Layout */
+.experience-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background-color: rgba(55, 65, 81, 0.5);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slide-up 0.8s ease forwards;
+}
+
+.experience-image {
+    width: 8rem;
+    height: 8rem;
+    margin-left: 1rem;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.experience-content {
+    flex: 1;
+}
+
+/* Mobile Layout */
+@media (max-width: 767px) {
+    .experience-card {
+        flex-direction: column;
+        text-align: center;
     }
-    
- 
+
+    .details-list {
+        text-align: left;
+    }
+
+    .experience-image {
+        width: 6rem;
+        height: 6rem;
+        margin: 0 auto 1rem auto;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .experience-period {
+        display: none; /* Hide period on mobile */
+    }
+
+    .experience-details {
+        display: none; /* Hide details by default on mobile */
+    }
+
+    .experience-details.expanded {
+        display: block; /* Show details when expanded */
+    }
 }
 
 /* Media Queries */
@@ -277,26 +296,35 @@
     .experience-card {
         display: flex;
         justify-content: space-between;
+        align-items: center; /* Center align items vertically */
+        padding: 1.5rem;
+        background-color: rgba(55, 65, 81, 0.5);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: slide-up 0.8s ease forwards;
     }
-    
+
     .experience-content {
         flex: 1;
     }
-    
+
     .experience-image {
         width: 8rem;
         height: 8rem;
         margin-left: 1rem;
         flex-shrink: 0;
+        object-fit: cover;
+        border-radius: 50%;
+        order: 2; /* Place image on the right */
     }
-    
     .experience-details {
         max-height: none;
         overflow: visible;
     }
-    
+
     .view-more-btn {
         display: none;
     }
 }
-

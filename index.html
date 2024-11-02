@@ -88,8 +88,8 @@
                </h1>
                <p class="text-xl md:text-2xl text-gray-300 mb-8 animate-slide-up opacity-0">
                   Computer Science Student @ Cochin University of Science and Technology
-                  <span class="block text-lg mt-2 animate-slide-up opacity-0" style="animation-delay: 200ms">
-                  Specializing in Full-Stack Development, API Integration & Robotics. 
+                 <span class="block text-xl animate-slide-up opacity-0" style="animation-delay: 200ms">
+                  <br>Specializing in Full-Stack Development, API Integration & Robotics. 
                   </span>
                </p>
                <div class="flex gap-4 animate-slide-up opacity-0" style="animation-delay: 400ms">
@@ -129,6 +129,9 @@
          </div>
          <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-900 to-transparent"></div>
       </header>
+
+
+
       <!-- About Section -->
       <section id="about" class="py-20 relative">
          <div class="container mx-auto px-6">
@@ -145,14 +148,14 @@
                   <div class="space-y-4 mt-8">
                      <h3 class="text-xl font-semibold">Current Focus</h3>
                      <ul class="list-disc list-inside text-gray-300 space-y-2">
-                        <li>Software Team Member at Horizon Mars Rover, CUSAT
+                        <li>Software Team Member at Horizon Mars Rover, CUSAT.
                         </li>
-                        <li>Active Member of IEEE Special Interest Group on Artificial Intelligence
+                        <li>Active Member of IEEE Special Interest Group on Artificial Intelligence.
                         </li>
                         <li>
-                           Developing expertise in ROS and robotics programming
+                           Developing expertise in ROS, full stack and robotics programming.
                         </li>
-                        <li>Seeking internship opportunities in robotics and software development</li>
+                        <li>Seeking internship opportunities in robotics and software development.</li>
                      </ul>
                   </div>
                   <div class="space-y-4 mt-8">
@@ -173,6 +176,10 @@
             </div>
          </div>
       </section>
+
+
+
+      
       <!-- Skills Section -->
       <section id="skills" class="bg-gray-800/50 py-20">
          <div class="container mx-auto px-6">
@@ -301,12 +308,13 @@
 
 
       <!-- Experience Section -->
-      <section class="experience-section">
+      <section id="experience" class="experience-section">
          <div class="container">
              <h2 class="section-title">Experience</h2>
-             
+     
              <!-- Software Developer Intern Card -->
              <div class="experience-card">
+                 <img src="horizon.jpeg" alt="Software Developer Intern" class="experience-image">
                  <div class="experience-content">
                      <div class="experience-header">
                          <div>
@@ -328,11 +336,11 @@
                      </div>
                      <button class="view-more-btn" onclick="toggleDetails('software-details')">View More</button>
                  </div>
-                 <img src="./horizon.jpeg" alt="Software Developer Intern" class="object-cover shadow-md  bg-blue rounded-full mt-11 flex justify-center experience-image">
              </div>
-             
+     
              <!-- AI - ML Intern Card -->
              <div class="experience-card">
+                 <img src="ibms.png" alt="AI - ML Intern" class="ibm experience-image">
                  <div class="experience-content">
                      <div class="experience-header">
                          <div>
@@ -356,11 +364,10 @@
                      </div>
                      <button class="view-more-btn" onclick="toggleDetails('ai-details')">View More</button>
                  </div>
-                 <img src="./ibms.webp" alt="AI - ML Intern" class="ibm shadow-md  rounded-lg experience-image">
              </div>
          </div>
      </section>
-
+     
 
 
 
@@ -733,92 +740,51 @@
 
          </div>
       </section>
+      
       <!-- Positions of Responsibility Section -->
-      <section id="responsibility" class="py-20">
-         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12" data-aos="fade-right">
-               Positions of Responsibility
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-               <div class="bg-gray-800/50 p-6 rounded-lg" data-aos="fade-up">
-                  <div class="flex items-center mb-4">
-                     <!-- <svg
-                        class="w-8 h-8 text-blue-400 mr-3"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        >
-                        <path
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                           d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                           ></path>
-                     </svg> -->
-                     <a href="https://www.linkedin.com/company/horizon-mars-rover-team/posts/?feedView=all"><img class="w-16 h-16 bg-blue-500/20 rounded-full flex item-center justify-center" src="./horizon.jpeg" alt=""></a>
-                     <h3 class="text-xl font-semibold">
-                        &nbsp;&nbsp;&nbsp;Team Lead, Horizon Mars Rover Team
-                     </h3>
-                  </div>
-                  <p class="text-gray-300">
-                    I oversee and coordinate all aspects of developing a Mars Rover. My role includes setting goals, assigning tasks, facilitating communication, and ensuring collaboration across mechanical, electronics, and software teams to achieve a high-performing, cohesive rover design.                  </p>
+      <section id="responsibility" class="py-8 md:py-20">
+         <div class="container mx-auto px-4 md:px-6">
+           <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-12" data-aos="fade-right">
+             Positions of Responsibility
+           </h2>
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+             <!-- Horizon Mars Rover Card -->
+             <div class="bg-gray-800/50 p-4 md:p-6 rounded-lg" data-aos="fade-up">
+               <div class="flex flex-col sm:flex-row items-start sm:items-center mb-4">
+                 <a href="https://www.linkedin.com/company/horizon-mars-rover-team/posts/?feedView=all" class="mb-2 sm:mb-0">
+                   <img class="w-12 h-12 md:w-16 md:h-16 bg-blue-500/20 rounded-full" src="./horizon.jpeg" alt="Horizon Mars Rover">
+                 </a>
+                 <h3 class="text-lg md:text-xl font-semibold sm:ml-3">
+                   Team Lead, Horizon Mars Rover Team
+                 </h3>
                </div>
-               <div
-                  class="bg-gray-800/50 p-6 rounded-lg"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  >
-                  <div class="flex items-center mb-4">
-                     <!-- <svg
-                        class="w-8 h-8 text-blue-400 mr-3"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        >
-                        <path
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                           d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15"
-                           ></path>
-                     </svg> -->
-                     <a href="https://www.linkedin.com/company/ieee-cusat-sb/posts/?feedView=all"><img class="w-20 h-6" src="./ieee.png" alt=""></a>
-                     <h3 class="text-xl font-semibold">&nbsp;&nbsp;&nbsp;SIG AI Lead, IEEE Execom'24</h3>
-                  </div>
-                  <p class="text-gray-300">
-                    Responsible for organizing AI-related tech events on campus and collaborated with other leads to ensure their success. I also conducted sessions for junior 
-                    students to introduce them to Artificial Intelligence and Machine Learning, helping them build foundational knowledge in these fields.
-                  </p>
+               <p class="text-sm md:text-base text-gray-300">
+                 I oversee and coordinate all aspects of developing a Mars Rover. My role includes setting goals, assigning tasks, facilitating communication, and ensuring collaboration across mechanical, electronics, and software teams to achieve a high-performing, cohesive rover design.
+               </p>
+             </div>
+       
+             <!-- IEEE Card -->
+             <div class="bg-gray-800/50 p-4 md:p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+               <div class="flex flex-col sm:flex-row items-start sm:items-center mb-4">
+                 <a href="https://www.linkedin.com/company/ieee-cusat-sb/posts/?feedView=all" class="mb-2 sm:mb-0">
+                   <img class="w-16 h-5 md:w-20 md:h-6" src="./ieee.png" alt="IEEE">
+                 </a>
+                 <h3 class="text-lg md:text-xl font-semibold sm:ml-3">
+                   SIG AI Lead, IEEE Execom'24
+                 </h3>
                </div>
-               <!-- <div
-                  class="bg-gray-800/50 p-6 rounded-lg"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  > -->
-                  <!-- <div class="flex items-center mb-4">
-                     <svg
-                        class="w-8 h-8 text-blue-400 mr-3"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        >
-                        <path
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                           d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                           ></path>
-                     </svg>
-                     <h3 class="text-xl font-semibold">Student Ambassador</h3>
-                  </div>
-                  <p class="text-gray-300">
-                     Represented CS department at university events, guided prospective
-                     students, and organized department workshops.
-                  </p>
-               </div>
-            </div> -->
+               <p class="text-sm md:text-base text-gray-300">
+                 Responsible for organizing AI-related tech events on campus and collaborated with other leads to ensure their success. I also conducted sessions for junior students to introduce them to Artificial Intelligence and Machine Learning, helping them build foundational knowledge in these fields.
+               </p>
+             </div>
+           </div>
          </div>
-      </section>
+       </section>
+
+
+
+
+      
       <!-- Achievements Section -->
       <section id="achievements" class="py-20 bg-gray-800/50">
          <div class="container mx-auto px-6">
