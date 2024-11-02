@@ -71,3 +71,10 @@ if (mobileMenuButton && mobileMenu) {
         });
     });
 }
+
+function toggleDetails(id) {
+    const details = document.getElementById(id);
+    details.classList.toggle('expanded');
+    const btn = details.parentElement.querySelector('.view-more-btn');
+    btn.textContent = details.classList.contains('expanded') ? 'View Less' : 'View More';
+}
