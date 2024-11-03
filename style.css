@@ -259,6 +259,10 @@
 
 /* Mobile Layout */
 @media (max-width: 767px) {
+
+    header,#about,#skills, #experience, #projects {
+       zoom: 0.9;
+    }
     
     #contact a{
         zoom: 0.8;
