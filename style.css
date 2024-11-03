@@ -148,7 +148,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: gradient 6s linear infinite;
+    animation: gradient 3s linear infinite;
 }
 
 .experience-card {
@@ -212,7 +212,7 @@
     border-radius: 0.25rem;
     cursor: pointer;
     margin-top: 1rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
 .view-more-btn:hover {
@@ -237,11 +237,11 @@
     justify-content: space-between;
     padding: 1.5rem;
     background-color: rgba(55, 65, 81, 0.5);
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: slide-up 0.8s ease forwards;
+    animation: slide-up 0.9s ease forwards;
 }
 
 .experience-image {
@@ -260,7 +260,7 @@
 /* Mobile Layout */
 @media (max-width: 767px) {
 
-    header,#about,#skills, #experience, #projects {
+    header,#about,#skills, #experience {
        zoom: 0.9;
     }
     
@@ -362,6 +362,7 @@
 
     .focus {
         background-color: rgba(31, 41, 55, 1);
+        border-radius: 0.5rem;
         padding: 1rem ;
         position: relative;
         overflow: hidden;
