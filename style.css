@@ -133,6 +133,7 @@
     overflow: hidden;
 }
 
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -258,10 +259,54 @@
 
 /* Mobile Layout */
 @media (max-width: 767px) {
+    body {
+        transform: scale(0.9); /* Reduces size by 10% */
+
+    }
+    
+
+    .focus {
+        background-color: rgba(31, 41, 55, 0.5);
+        padding: 2rem ;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .focus h2 {
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+    }
+    
+    .focus ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 1rem;
+    }
+    
+    .focus ul li {
+        position: relative;
+        padding-left: 1.25rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+    
+    .focus ul li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    
+    /* Remove extra spacing after bullet points */
+    .focus ul li br {
+        display: none;
+    }
+    
     .experience-card {
         flex-direction: column;
         text-align: center;
     }
+   
 
     .details-list {
         text-align: left;
@@ -306,6 +351,7 @@
         animation: slide-up 0.8s ease forwards;
     }
 
+    
     .experience-content {
         flex: 1;
     }
