@@ -259,12 +259,12 @@
 
 /* Mobile Layout */
 @media (max-width: 767px) {
-    body {
-        transform: scale(0.9); /* Reduces size by 10% */
-
-    }
     
+    header, #about, #skills, #experience, #projects, #contact {
+        zoom: 0.9;
+    }
 
+  
     .focus {
         background-color: rgba(31, 41, 55, 0.5);
         padding: 2rem ;
@@ -354,6 +354,13 @@
     
     .experience-content {
         flex: 1;
+    }
+
+    .focus {
+        background-color: rgba(31, 41, 55, 1);
+        padding: 1rem ;
+        position: relative;
+        overflow: hidden;
     }
 
     .experience-image {
