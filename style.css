@@ -260,7 +260,7 @@
 /* Mobile Layout */
 @media (max-width: 767px) {
     
-    header, #about, #skills, #experience, #projects, #contact {
+    #contact a {
         zoom: 0.9;
     }
 
