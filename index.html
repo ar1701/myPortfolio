@@ -235,7 +235,6 @@
                         <li><i class="fas fa-project-diagram"></i> Algorithms</li>
                         <li><i class="fas fa-object-group"></i> Object Oriented Programming (Java)</li>
 
-
                      </ul>
                   </ul>
                </div>
@@ -980,6 +979,18 @@
       <!-- Footer -->
       <footer class="py-8 text-center text-gray-400">
          <p>© 2024 Ayush Raj. All rights reserved.</p>
+          <li><i class="fas fa-calendar-alt"></i> Last Updated: <span id="last-updated"></span></li>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+               const lastUpdated = new Date(document.lastModified);
+               const day = String(lastUpdated.getDate()).padStart(2, '0');
+               const month = String(lastUpdated.getMonth() + 1).padStart(2, '0');
+               const year = lastUpdated.getFullYear();
+               const formattedDate = `${day}/${month}/${year}`;
+               document.getElementById('last-updated').textContent = formattedDate;
+            });
+          </script>
+
       </footer>
       <!-- AOS Animation Library -->
       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
