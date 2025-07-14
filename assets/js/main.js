@@ -47,14 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileMenuBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       const isOpen = mobileMenu.classList.contains("active");
-      
+
       mobileMenu.classList.toggle("active");
       mobileMenuBtn.classList.toggle("active");
       document.body.classList.toggle("menu-open");
 
       // Update accessibility attributes
       mobileMenuBtn.setAttribute("aria-expanded", !isOpen);
-      
+
       // Add haptic feedback
       simulateHapticFeedback();
 
@@ -79,9 +79,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Close menu when clicking outside
     document.addEventListener("click", (e) => {
-      if (mobileMenu.classList.contains("active") && 
-          !mobileMenu.contains(e.target) && 
-          !mobileMenuBtn.contains(e.target)) {
+      if (
+        mobileMenu.classList.contains("active") &&
+        !mobileMenu.contains(e.target) &&
+        !mobileMenuBtn.contains(e.target)
+      ) {
         closeMobileMenu();
       }
     });
@@ -350,7 +352,7 @@ function closeMobileMenu() {
     mobileMenuBtn.classList.remove("active");
     document.body.classList.remove("menu-open");
     mobileMenuBtn.setAttribute("aria-expanded", "false");
-    
+
     // Reset hamburger animation
     const spans = mobileMenuBtn.querySelectorAll("span");
     spans[0].style.transform = "none";
@@ -457,11 +459,11 @@ let touchStartX = 0;
 let touchEndX = 0;
 
 // Add swipe gesture support
-document.addEventListener('touchstart', (e) => {
+document.addEventListener("touchstart", (e) => {
   touchStartX = e.changedTouches[0].screenX;
 });
 
-document.addEventListener('touchend', (e) => {
+document.addEventListener("touchend", (e) => {
   touchEndX = e.changedTouches[0].screenX;
   handleSwipe();
 });
@@ -469,17 +471,24 @@ document.addEventListener('touchend', (e) => {
 function handleSwipe() {
   const swipeThreshold = 100;
   const swipeDistance = touchEndX - touchStartX;
-  
+
   // Swipe right to close menu (when menu is open)
-  if (swipeDistance > swipeThreshold && mobileMenu.classList.contains('active')) {
+  if (
+    swipeDistance > swipeThreshold &&
+    mobileMenu.classList.contains("active")
+  ) {
     closeMobileMenu();
   }
   // Swipe left from right edge to open menu
-  else if (swipeDistance < -swipeThreshold && !mobileMenu.classList.contains('active') && touchStartX > window.innerWidth - 50) {
-    mobileMenu.classList.add('active');
-    mobileMenuBtn.classList.add('active');
-    document.body.classList.add('menu-open');
-    
+  else if (
+    swipeDistance < -swipeThreshold &&
+    !mobileMenu.classList.contains("active") &&
+    touchStartX > window.innerWidth - 50
+  ) {
+    mobileMenu.classList.add("active");
+    mobileMenuBtn.classList.add("active");
+    document.body.classList.add("menu-open");
+
     // Animate hamburger
     const spans = mobileMenuBtn.querySelectorAll("span");
     spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
@@ -493,35 +502,35 @@ function handleSwipe() {
 
 // Haptic feedback simulation for mobile devices
 function simulateHapticFeedback() {
-  if ('vibrate' in navigator) {
+  if ("vibrate" in navigator) {
     navigator.vibrate(50); // Light vibration for 50ms
   }
 }
 
 // Enhanced mobile menu click feedback
 if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('touchstart', () => {
-    mobileMenuBtn.style.transform = 'scale(0.95)';
+  mobileMenuBtn.addEventListener("touchstart", () => {
+    mobileMenuBtn.style.transform = "scale(0.95)";
   });
 
-  mobileMenuBtn.addEventListener('touchend', () => {
+  mobileMenuBtn.addEventListener("touchend", () => {
     setTimeout(() => {
-      mobileMenuBtn.style.transform = 'scale(1)';
+      mobileMenuBtn.style.transform = "scale(1)";
     }, 100);
   });
 }
 
 // Add haptic feedback to all mobile links
-const mobileLinks = document.querySelectorAll('.mobile-link');
-mobileLinks.forEach(link => {
-  link.addEventListener('touchstart', () => {
+const mobileLinks = document.querySelectorAll(".mobile-link");
+mobileLinks.forEach((link) => {
+  link.addEventListener("touchstart", () => {
     simulateHapticFeedback();
-    link.style.transform = 'translateX(15px) scale(0.98)';
+    link.style.transform = "translateX(15px) scale(0.98)";
   });
 
-  link.addEventListener('touchend', () => {
+  link.addEventListener("touchend", () => {
     setTimeout(() => {
-      link.style.transform = 'translateX(10px)';
+      link.style.transform = "translateX(10px)";
     }, 100);
   });
 });
