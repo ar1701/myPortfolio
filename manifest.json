@@ -1,0 +1,22 @@
+{
+    "name": "Ayush Raj - Portfolio",
+    "short_name": "Ayush Portfolio",
+    "description": "Computer Science Student specializing in Robotics, Full-Stack Development & Embedded Systems",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#3b82f6",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "./assets/images/Ayush_Raj_CodeCrew.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["portfolio", "developer", "engineering"],
+    "lang": "en",
+    "scope": "/",
+    "prefer_related_applications": false
+}
