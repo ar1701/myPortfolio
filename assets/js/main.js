@@ -43,20 +43,53 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenu = document.getElementById("mobile-menu");
 
   if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener("click", () => {
+    // Toggle mobile menu
+    mobileMenuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = mobileMenu.classList.contains("active");
+      
       mobileMenu.classList.toggle("active");
       mobileMenuBtn.classList.toggle("active");
+      document.body.classList.toggle("menu-open");
 
-      // Animate hamburger menu
+      // Update accessibility attributes
+      mobileMenuBtn.setAttribute("aria-expanded", !isOpen);
+      
+      // Add haptic feedback
+      simulateHapticFeedback();
+
+      // Animate hamburger menu with enhanced styling
       const spans = mobileMenuBtn.querySelectorAll("span");
-      if (mobileMenu.classList.contains("active")) {
+      if (!isOpen) {
         spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
+        spans[0].style.background = "var(--secondary-color)";
         spans[1].style.opacity = "0";
-        spans[2].style.transform = "rotate(-45deg) translate(6px, -6px)";
+        spans[1].style.transform = "scale(0)";
+        spans[2].style.transform = "rotate(-45deg) translate(7px, -6px)";
+        spans[2].style.background = "var(--secondary-color)";
       } else {
         spans[0].style.transform = "none";
+        spans[0].style.background = "var(--text-primary)";
         spans[1].style.opacity = "1";
+        spans[1].style.transform = "scale(1)";
         spans[2].style.transform = "none";
+        spans[2].style.background = "var(--text-primary)";
+      }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (mobileMenu.classList.contains("active") && 
+          !mobileMenu.contains(e.target) && 
+          !mobileMenuBtn.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close menu on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
+        closeMobileMenu();
       }
     });
   }
@@ -65,16 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileLinks = document.querySelectorAll(".mobile-link");
   mobileLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      if (mobileMenu) {
-        mobileMenu.classList.remove("active");
-      }
-      if (mobileMenuBtn) {
-        mobileMenuBtn.classList.remove("active");
-        const spans = mobileMenuBtn.querySelectorAll("span");
-        spans[0].style.transform = "none";
-        spans[1].style.opacity = "1";
-        spans[2].style.transform = "none";
-      }
+      closeMobileMenu();
     });
   });
 
@@ -316,6 +340,28 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Helper function to close mobile menu
+function closeMobileMenu() {
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+
+  if (mobileMenu && mobileMenuBtn) {
+    mobileMenu.classList.remove("active");
+    mobileMenuBtn.classList.remove("active");
+    document.body.classList.remove("menu-open");
+    mobileMenuBtn.setAttribute("aria-expanded", "false");
+    
+    // Reset hamburger animation
+    const spans = mobileMenuBtn.querySelectorAll("span");
+    spans[0].style.transform = "none";
+    spans[0].style.background = "var(--text-primary)";
+    spans[1].style.opacity = "1";
+    spans[1].style.transform = "scale(1)";
+    spans[2].style.transform = "none";
+    spans[2].style.background = "var(--text-primary)";
+  }
+}
+
 // Handle experience section toggle
 function toggleDetails(id) {
   const details = document.getElementById(id);
@@ -405,3 +451,77 @@ if ("serviceWorker" in navigator) {
       });
   });
 }
+
+// Touch/swipe support for mobile menu
+let touchStartX = 0;
+let touchEndX = 0;
+
+// Add swipe gesture support
+document.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const swipeThreshold = 100;
+  const swipeDistance = touchEndX - touchStartX;
+  
+  // Swipe right to close menu (when menu is open)
+  if (swipeDistance > swipeThreshold && mobileMenu.classList.contains('active')) {
+    closeMobileMenu();
+  }
+  // Swipe left from right edge to open menu
+  else if (swipeDistance < -swipeThreshold && !mobileMenu.classList.contains('active') && touchStartX > window.innerWidth - 50) {
+    mobileMenu.classList.add('active');
+    mobileMenuBtn.classList.add('active');
+    document.body.classList.add('menu-open');
+    
+    // Animate hamburger
+    const spans = mobileMenuBtn.querySelectorAll("span");
+    spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
+    spans[0].style.background = "var(--secondary-color)";
+    spans[1].style.opacity = "0";
+    spans[1].style.transform = "scale(0)";
+    spans[2].style.transform = "rotate(-45deg) translate(7px, -6px)";
+    spans[2].style.background = "var(--secondary-color)";
+  }
+}
+
+// Haptic feedback simulation for mobile devices
+function simulateHapticFeedback() {
+  if ('vibrate' in navigator) {
+    navigator.vibrate(50); // Light vibration for 50ms
+  }
+}
+
+// Enhanced mobile menu click feedback
+if (mobileMenuBtn) {
+  mobileMenuBtn.addEventListener('touchstart', () => {
+    mobileMenuBtn.style.transform = 'scale(0.95)';
+  });
+
+  mobileMenuBtn.addEventListener('touchend', () => {
+    setTimeout(() => {
+      mobileMenuBtn.style.transform = 'scale(1)';
+    }, 100);
+  });
+}
+
+// Add haptic feedback to all mobile links
+const mobileLinks = document.querySelectorAll('.mobile-link');
+mobileLinks.forEach(link => {
+  link.addEventListener('touchstart', () => {
+    simulateHapticFeedback();
+    link.style.transform = 'translateX(15px) scale(0.98)';
+  });
+
+  link.addEventListener('touchend', () => {
+    setTimeout(() => {
+      link.style.transform = 'translateX(10px)';
+    }, 100);
+  });
+});
