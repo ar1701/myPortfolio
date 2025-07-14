@@ -1,1176 +1,648 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Ayush Raj - Computer Science Portfolio</title>
-      <script src="https://cdn.tailwindcss.com"></script>
-      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-      <link rel="stylesheet" href="./style.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayush Raj - Computer Science Portfolio</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./assets/css/styles.css" as="style">
+    <link rel="preload" href="./assets/images/Ayush_Raj_CodeCrew.png" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
+    
+    <!-- Critical CSS inline for faster loading -->
+    <style>
+        body { 
+            margin: 0; 
+            background: #0f172a; 
+            color: white; 
+            font-family: system-ui, -apple-system, sans-serif; 
+            overflow-x: hidden;
+        }
+        .loading-screen { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: #0f172a; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            z-index: 9999; 
+        }
+        .spinner { 
+            width: 50px; 
+            height: 50px; 
+            border: 3px solid #334155; 
+            border-top: 3px solid #3b82f6; 
+            border-radius: 50%; 
+            animation: spin 1s linear infinite; 
+        }
+        @keyframes spin { 
+            0% { transform: rotate(0deg); } 
+            100% { transform: rotate(360deg); } 
+        }
+        .loading-text {
+            margin-top: 1rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        #main-content {
+            display: none;
+        }
+    </style>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Ayush Raj - Computer Science Student specializing in Robotics, Full-Stack Development & Embedded Systems. Portfolio showcasing projects and achievements.">
+    <meta name="keywords" content="Ayush Raj, Computer Science, Robotics, Full-Stack Developer, CUSAT, Portfolio">
+    <meta name="author" content="Ayush Raj">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Ayush Raj - Computer Science Portfolio">
+    <meta property="og:description" content="Computer Science Student specializing in Robotics, Full-Stack Development & Embedded Systems">
+    <meta property="og:image" content="./assets/images/Ayush_Raj_CodeCrew.png">
+    <meta property="og:url" content="https://yourwebsite.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/Ayush_Raj_CodeCrew.png">
+</head>
 
-   <body class="bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-      <!-- Floating Tech Background -->
-      <div class="fixed inset-0 overflow-hidden pointer-events-none opacity-10">
-         <div class="absolute inset-0 flex flex-wrap gap-8 animate-slide">
-            <img
-               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-               class="w-16 h-16"
-               />
-            <img
-               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-               class="w-16 h-16"
-               />
-            <img
-               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-               class="w-16 h-16"
-               />
-            <img
-               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-               class="w-16 h-16"
-               />
-            <img
-               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
-               class="w-16 h-16"
-               />
-         </div>
-      </div>
-      <!-- Navigation  -->
-      <nav class="fixed w-full bg-gray-900/90 backdrop-blur-sm z-50">
-         <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-               <a href="#" class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">AYUSH RAJ</a>
-               <div class="hidden md:flex space-x-8">
-                  <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-                  <a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a>
-                  <a href="#experience" class="hover:text-blue-400 transition-colors">Experience</a>
-                  <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
-                  <a href="#responsibility" class="hover:text-blue-400 transition-colors">Responsibility</a>
-                  <a href="#achievements" class="hover:text-blue-400 transition-colors">Achievements</a>
-                  <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
-               </div>
-               <!-- Mobile menu button -->
-               <button class="md:hidden text-white hover:text-blue-400 transition-colors">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                  </svg>
-               </button>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading Portfolio...</div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="nav-brand">AYUSH RAJ</a>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#responsibility" class="nav-link">Responsibility</a>
+                    <a href="#achievements" class="nav-link">Achievements</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-         </div>
-         <!-- Mobile menu (hidden by default) -->
-         <div class="md:hidden hidden bg-gray-900/95 p-4">
-            <div class="flex flex-col space-y-4">
-               <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-               <a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a>
-               <a href="#experience" class="hover:text-blue-400 transition-colors">Experience</a>
-               <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
-               <a href="#responsibility" class="hover:text-blue-400 transition-colors">Responsibility</a>
-               <a href="#achievements" class="hover:text-blue-400 transition-colors">Achievements</a>
-               <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+            <div class="mobile-menu" id="mobile-menu">
+                <a href="#about" class="mobile-link">About</a>
+                <a href="#skills" class="mobile-link">Skills</a>
+                <a href="#experience" class="mobile-link">Experience</a>
+                <a href="#projects" class="mobile-link">Projects</a>
+                <a href="#responsibility" class="mobile-link">Responsibility</a>
+                <a href="#achievements" class="mobile-link">Achievements</a>
+                <a href="#contact" class="mobile-link">Contact</a>
             </div>
-         </div>
-      </nav>
-      <!-- Hero Section -->
-      <header class="min-h-screen flex items-center relative overflow-hidden bg-gray-900 text-white">
-         <!-- Background Particles -->
-         <div class="absolute inset-0">
-            <div class="particles absolute inset-0"></div>
-         </div>
-      
-         <div class="container mx-auto px-6 py-16 md:py-32 relative z-10 flex items-center justify-between">
-            <!-- Left Side Content -->
-            <div class="max-w-3xl" data-aos="fade-up">
-               <!-- Profile Picture -->
-               <div class="w-32 h-32 rounded-full overflow-hidden mb-8 animate-profile-picture">
-                  <img src="./Ayush_Raj_CodeCrew.png" alt="Ayush Raj" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
-               </div>
-      
-               <!-- Name and Introduction -->
-               <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-text-gradient bg-gradient-to-r from-blue-400 via-emerald-400 to-blue-400 bg-clip-text text-transparent bg-300% animate-gradient">
-                  AYUSH RAJ
-               </h1>
-               <p class="text-xl md:text-2xl text-gray-300 mb-8 animate-slide-up opacity-0">
-                  Computer Science Student @ Cochin University of Science and Technology
-                  <span class="block text-xl animate-slide-up opacity-0" style="animation-delay: 200ms">
-                     <br>Specializing in Robotics , Full-Stack & Embedded System.
-                  </span>
-               </p>
-      
-               <!-- Social Media Icons -->
-               <div class="flex gap-4 animate-slide-up opacity-0" style="animation-delay: 400ms">
-                  <a href="https://github.com/ar1701" class="hover:text-blue-400 transition-colors p-2 bg-gray-800/50 rounded-full hover:scale-110 transform transition-transform">
-                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-                     </svg>
-                  </a>
-                  <a href="https://linkedin.com/in/ayush-raj17" class="hover:text-blue-400 transition-colors p-2 bg-gray-800/50 rounded-full hover:scale-110 transform transition-transform">
-                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
-                     </svg>
-                  </a>
-                  <a href="mailto:ayushrajj30@gmail.com" class="hover:text-blue-400 transition-colors p-2 bg-gray-800/50 rounded-full hover:scale-110 transform transition-transform">
-                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                     </svg>
-                  </a>
-                  <a href="https://leetcode.com/ayushrajj/" class="hover:text-blue-400 transition-colors p-2 bg-gray-800/50 rounded-full hover:scale-110 transform transition-transform">
-                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.501-2.832c-1.386-1.115-3.202-1.579-4.909-1.251l3.83-4.106a1.374 1.374 0 0 0-.14-1.942A1.373 1.373 0 0 0 13.483 0Z"></path>
-                     </svg>
-                  </a>
-                  <a href="https://www.hackerrank.com/profile/ayushrajj" class="hover:text-blue-400 transition-colors p-2 bg-gray-800/50 rounded-full hover:scale-110 transform transition-transform">
-                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 0c1.285 0 9.75 4.886 10.392 6 .645 1.115.645 10.885 0 12S13.287 24 12 24s-9.75-4.885-10.395-6c-.641-1.115-.641-10.885 0-12C2.25 4.886 10.715 0 12 0zm2.295 6.799c-.141 0-.279.033-.402.099v.006l-3.46 2.001L7.03 6.899v-.006c-.123-.065-.261-.099-.402-.099-.414 0-.75.336-.75.75v8.91c0 .414.336.75.75.75s.75-.336.75-.75V9.393l2.69 1.553v6.167c0 .414.336.75.75.75s.75-.336.75-.75V10.946l3.457-2.001v7.462c0 .414.336.75.75.75s.75-.336.75-.75v-8.91c0-.414-.336-.75-.75-.75z"/>
-                     </svg>
-                  </a>
+        </nav>
 
-                  <a href="https://instagram.com/ayushrajjofficial?igshid=ZDdkNTZiNTM=" class="hover:text-pink-400 transition-colors p-2 bg-gray-800/50 rounded-full hover:scale-110 transform transition-transform">
-                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                       <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.348 3.608 1.324.974.975 1.262 2.243 1.324 3.608.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.348 2.633-1.324 3.608-.975.974-2.243 1.262-3.608 1.324-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.366-.062-2.633-.348-3.608-1.324-.974-.975-1.262-2.243-1.324-3.608-.058-1.265-.07-1.645-.07-4.849s.012-3.584.07-4.849c.062-1.366.348-2.633 1.324-3.608.975-.974 2.243-1.262 3.608-1.324 1.265-.058 1.645-.07 4.849-.07zm0-2.163c-3.259 0-3.67.014-4.947.072-1.488.067-2.794.377-3.835 1.418-1.041 1.041-1.351 2.347-1.418 3.835-.058 1.277-.072 1.688-.072 4.947s.014 3.67.072 4.947c.067 1.488.377 2.794 1.418 3.835 1.041 1.041 2.347 1.351 3.835 1.418 1.277.058 1.688.072 4.947.072s3.67-.014 4.947-.072c1.488-.067 2.794-.377 3.835-1.418 1.041-1.041 1.351-2.347 1.418-3.835.058-1.277.072-1.688.072-4.947s-.014-3.67-.072-4.947c-.067-1.488-.377-2.794-1.418-3.835-1.041-1.041-2.347-1.351-3.835-1.418-1.277-.058-1.688-.072-4.947-.072zm0 5.838c-3.181 0-5.762 2.581-5.762 5.762s2.581 5.762 5.762 5.762 5.762-2.581 5.762-5.762-2.581-5.762-5.762-5.762zm0 9.523c-2.072 0-3.761-1.689-3.761-3.761s1.689-3.761 3.761-3.761 3.761 1.689 3.761 3.761-1.689 3.761-3.761 3.761zm6.406-10.845c-.796 0-1.443.646-1.443 1.443s.646 1.443 1.443 1.443 1.443-.646 1.443-1.443-.646-1.443-1.443-1.443z"/>
-                     </svg>
-                   </a>
-               </div>
-      
-               <!-- Contact Information -->
-               <div class="text-gray-300 space-y-2 mt-6">
-                  <p><i class="fas fa-envelope"></i> ayushrajj30@gmail.com</p>
-                  <p><i class="fas fa-phone"></i> +91 7292879045</p>
-               </div>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content" data-aos="fade-up">
+                    <div class="profile-image">
+                        <img src="./assets/images/Ayush_Raj_CodeCrew.png" alt="Ayush Raj" loading="eager">
+                    </div>
+                    
+                    <h1 class="hero-title">AYUSH RAJ</h1>
+                    <div class="hero-subtitle">
+                        <p>Computer Science Student @ Cochin University of Science and Technology</p>
+                        <p>Specializing in Robotics, Full-Stack & Embedded Systems</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/ar1701" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/ayush-raj17" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:ayushrajj30@gmail.com" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://leetcode.com/ayushrajj/" class="social-link" aria-label="LeetCode">
+                            <i class="fas fa-code"></i>
+                        </a>
+                        <a href="https://www.hackerrank.com/profile/ayushrajj" class="social-link" aria-label="HackerRank">
+                            <i class="fab fa-hackerrank"></i>
+                        </a>
+                        <a href="https://instagram.com/ayushrajjofficial?igshid=ZDdkNTZiNTM=" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> ayushrajj30@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +91 7292879045</p>
+                    </div>
+                </div>
+                
+                <div class="hero-image" data-aos="fade-left">
+                    <img src="./assets/images/coder.gif" alt="Coding Animation" loading="lazy">
+                </div>
             </div>
-      
-            <!-- Right Side GIF -->
-            <div class="block sm:hidden">
-               <img width="350" src="./coder.gif" alt="Ayush Raj animation" class="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500">
-             </div>
-             <div class="hidden sm:block lg:hidden">
-               <img width="500" src="./coder.gif" alt="Ayush Raj animation" class="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500">
-             </div>
-             <div class="hidden lg:block">
-               <img width="700" src="./coder.gif" alt="Ayush Raj animation" class="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-500">
-             </div>
-             
-         </div>
-      
-         <!-- Bottom Gradient -->
-         <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-900 to-transparent"></div>
-      </header>
-      
-
-
-      <!-- About Section -->
-      <section id="about" class="py-20 relative">
-         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12" data-aos="fade-right">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-               <div class="space-y-6" data-aos="fade-up">
-                  <p class="text-gray-300">
-                     I'm a 4th Year (7th Semester) Computer Science and Engineering student at CUSAT (Cochin University of Science and Technology), passionate about robotics and software development. With a CGPA above 9, I'm actively learning Robot Operating System (ROS) and Data Structures & Algorithms in Java, backend by a strong foundation in Object-Oriented Programming.
-                  </p>
-                  <p class="text-gray-300">
-                     I have Solved 100+ programming problems across various
-                     platforms like LeetCode, GeekforGeeks, Hackerrank etc.
-                  </p>
-                  <div class=" focus  mt-8">
-                     <h3 class="text-xl font-semibold">Current Focus</h3>
-                     <ul class="focus list-disc list-inside text-gray-300 space-y-2">
-                        <li>Software Team Member at Horizon Mars Rover, CUSAT.</li>
-                        <li>Active Member of IEEE Special Interest Group on Artificial Intelligence.
-                        </li>
-                        <li>
-                           Developing expertise in ROS, full stack and robotics programming.
-                        </li>
-                        <li>Embedded Intern @  <a href="https://www.linkedin.com/company/brainspired/posts/?feedView=all" class="inline-flex items-center text-blue-400 hover:text-blue-300">
-                           <b>Brainspired Labs</b>
-                           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                           </svg>
-                        </a></li>
+        </section>        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-right">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-content" data-aos="fade-up">
+                        <p class="about-text">
+                            I'm a 4th Year (7th Semester) Computer Science and Engineering student at CUSAT (Cochin University of Science and Technology), passionate about robotics and software development. With a CGPA above 9, I'm actively learning Robot Operating System (ROS) and Data Structures & Algorithms in Java, backed by a strong foundation in Object-Oriented Programming.
+                        </p>
+                        <p class="about-text">
+                            I have solved 100+ programming problems across various platforms like LeetCode, GeeksforGeeks, HackerRank etc.
+                        </p>
                         
-                     </ul>
-                  </div>
-                  <div class="space-y-4 mt-8">
-                     <h3 class="text-xl font-semibold">Beyond Tech</h3>
-                     <p class="text-gray-300">
-                        Outside of programming, I enjoy solving Rubik's Cube (3x3 and 2x2), reading books, playing cricket, and exploring new places.              
-                     </p>
-                  </div>
-               </div>
-               <div class="relative" data-aos="fade-left">
-                  <img
-                     src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80"
-                     alt="Coding Setup"
-                     class="rounded-lg shadow-xl"
-                     />
-                  <div class="absolute inset-0 bg-blue-500/10 rounded-lg"></div>
-               </div>
+                        <div class="focus-section">
+                            <h3 class="focus-title">Current Focus</h3>
+                            <ul class="focus-list">
+                                <li>Software Team Member at Horizon Mars Rover, CUSAT</li>
+                                <li>Active Member of IEEE Special Interest Group on Artificial Intelligence</li>
+                                <li>Developing expertise in ROS, full stack and robotics programming</li>
+                                <li>Embedded Intern @ <a href="https://www.linkedin.com/company/brainspired/posts/?feedView=all" class="link">Brainspired Labs</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="beyond-tech">
+                            <h3 class="focus-title">Beyond Tech</h3>
+                            <p class="about-text">
+                                Outside of programming, I enjoy solving Rubik's Cube (3x3 and 2x2), reading books, playing cricket, and exploring new places.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="about-image" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80" alt="Coding Setup" loading="lazy">
+                    </div>
+                </div>
             </div>
-         </div>
-      </section>
+        </section>
 
+        <!-- Skills Section -->
+        <section id="skills" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-right">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card" data-aos="fade-up">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="skill-title">Programming Languages</h3>
+                        <ul class="skill-list">
+                            <li><i class="fab fa-cuttlefish"></i> C</li>
+                            <li><i class="fab fa-cuttlefish"></i> C++</li>
+                            <li><i class="fab fa-java"></i> Java</li>
+                            <li><i class="fab fa-python"></i> Python</li>
+                            <li><i class="fas fa-database"></i> Data Structures</li>
+                            <li><i class="fas fa-project-diagram"></i> Algorithms</li>
+                            <li><i class="fas fa-object-group"></i> Object Oriented Programming</li>
+                        </ul>
+                    </div>
 
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="skill-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3 class="skill-title">Frameworks & Libraries</h3>
+                        <ul class="skill-list">
+                            <li><i class="fab fa-react"></i> React & Node.js</li>
+                            <li><i class="fas fa-server"></i> Express.js & REST API</li>
+                            <li><i class="fab fa-css3-alt"></i> Tailwind CSS</li>
+                            <li><i class="fas fa-cube"></i> OpenGL</li>
+                            <li><i class="fas fa-robot"></i> Embedded Systems</li>
+                        </ul>
+                    </div>
 
-      
-      <!-- Skills Section -->
-      <section id="skills" class="bg-gray-800/50 py-20">
-         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12" data-aos="fade-right">
-               Technical Skills
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-               <div
-                  class="bg-gray-700/50 p-6 rounded-lg transform hover:scale-105 transition-transform"
-                  data-aos="fade-up"
-                  >
-                  <svg
-                     class="w-8 h-8 mb-4 text-blue-400"
-                     fill="none"
-                     stroke="currentColor"
-                     viewBox="0 0 24 24"
-                     >
-                     <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                        ></path>
-                  </svg>
-                  <h3 class="font-semibold mb-2">Programming Languages</h3>
-                  <ul class="text-gray-300 space-y-2">
-                     <ul class="text-300 space-y-2">
-                        <li><i class="fab fa-cuttlefish"></i> C</li>
-                        <li><i class="fab fa-cuttlefish"></i> C++</li>
-                        <li><i class="fab fa-java"></i> Java</li>
-                        <li><i class="fab fa-python"></i> Python</li>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="skill-title">Database & Cloud</h3>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-leaf"></i> MongoDB</li>
+                            <li><i class="fas fa-database"></i> SQL</li>
+                            <li><i class="fab fa-aws"></i> Amazon Web Services</li>
+                            <li><i class="fab fa-google"></i> Google Cloud</li>
+                            <li><i class="fas fa-cloud-upload-alt"></i> Cloudinary</li>
+                        </ul>
+                    </div>
 
-                        <hr>
-                        <li><i class="fas fa-database"></i> Data Structures</li>
-                        <li><i class="fas fa-project-diagram"></i> Algorithms</li>
-                        <li><i class="fas fa-object-group"></i> Object Oriented Programming(OOP)</li>
-
-                     </ul>
-                  </ul>
-               </div>
-               <div
-                  class="bg-gray-700/50 p-6 rounded-lg transform hover:scale-105 transition-transform"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  >
-                  <svg
-                     class="w-8 h-8 mb-4 text-emerald-400"
-                     fill="none"
-                     stroke="currentColor"
-                     viewBox="0 0 24 24"
-                     >
-                     <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        ></path>
-                  </svg>
-                  <h3 class="font-semibold mb-2">Frameworks and Libraries</h3>
-                  <ul class="text-gray-300 space-y-2">
-                     <li><i class="fab fa-react"></i> React & Node.js</li>
-                     <li><i class="fas fa-server"></i> Express.js & REST API</li>
-                     <li><i class="fab fa-css3-alt"></i> Tailwind CSS </li>
-                     <li><i class="fas fa-cube"></i> OpenGL</li>
-<li><i class="fas fa-robot"></i> Embedded System </li>
-                  </ul>
-               </div>
-               <div
-                  class="bg-gray-700/50 p-6 rounded-lg transform hover:scale-105 transition-transform"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  >
-                  <svg
-                     class="w-8 h-8 mb-4 text-purple-400"
-                     fill="none"
-                     stroke="currentColor"
-                     viewBox="0 0 24 24"
-                     >
-                     <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
-                        ></path>
-                  </svg>
-
-
-                  
-
-
-
-                  <h3 class="font-semibold mb-2">Database & Cloud</h3>
-                  <ul class="text-gray-300 space-y-2">
-                     <li><i class="fas fa-leaf"></i> MongoDB</li>
-                     <!-- Use a leaf icon for MongoDB -->
-                     <li><i class="fas fa-database"></i> SQL</li>
-                     <li><i class="fab fa-aws"></i>&nbsp;Amazon Web Services</li>
-                     <li> <i class="fab fa-google"></i> Google Cloud</li>
-                     <li><i class="fas fa-cloud-upload-alt"></i> Cloudinary</li>
-                     <!-- Cloud upload as a placeholder for Cloudinary -->
-                  </ul>
-               </div>
-               <div
-                  class="bg-gray-700/50 p-6 rounded-lg transform hover:scale-105 transition-transform"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-                  >
-                  <svg
-                     class="w-8 h-8 mb-4 text-pink-400"
-                     fill="none"
-                     stroke="currentColor"
-                     viewBox="0 0 24 24"
-                     >
-                     <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        ></path>
-                  </svg>
-                  <h3 class="font-semibold mb-2">AI/ML</h3>
-                  <ul class="text-gray-300 space-y-2">
-                     <li><i class="fas fa-brain"></i> Vertex AI</li>
-                     <!-- Brain icon as placeholder for AI -->
-                     <li><i class="fas fa-link"></i> Gemini API</li>
-                     <!-- Link icon for APIs -->
-                     <li><i class="fas fa-project-diagram"></i> Supervised Machine Learning</li>
-                     <!-- Project diagram icon for ML -->
-                     <li><i class="fas fa-database"></i> Pandas</li>
-                     <!-- Database icon for Pandas data processing -->
-
-                     <hr>
-                     <h3 class="font-semibold mb-2"><b>Robotics</b></h3>
-                     <li><i class="fas fa-database"></i> Robot Oprating System (ROS2)</li>
-                     <li><i class="fas fa-project-diagram"></i> ROS2 NAV2</li>
-                     <li><i class="fas fa-object-group"></i> SLAM / TF / RVIZ / Gazebo</li>
-                  </ul>
-
-                 
-               </div>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="skill-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="skill-title">AI/ML & Robotics</h3>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-brain"></i> Vertex AI</li>
+                            <li><i class="fas fa-link"></i> Gemini API</li>
+                            <li><i class="fas fa-project-diagram"></i> Supervised ML</li>
+                            <li><i class="fas fa-database"></i> Pandas</li>
+                            <li><i class="fas fa-robot"></i> ROS2</li>
+                            <li><i class="fas fa-map"></i> SLAM / NAV2</li>
+                            <li><i class="fas fa-eye"></i> RVIZ / Gazebo</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-         </div>
-      </section>
+        </section>
    
 
-      <!-- Experience Section -->
-      <section id="experience" class="experience-section">
-         <div class="container">
-             <h2 class="section-title">Experience</h2>
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-right">Experience</h2>
 
+                <div class="experience-card" data-aos="fade-up">
+                    <div class="experience-header">
+                        <div style="display: flex; align-items: center;">
+                            <img src="./assets/images/brainspired_logo.jpeg" alt="Brainspired Labs" class="experience-image">
+                            <div>
+                                <h3 class="experience-title">Embedded System Intern</h3>
+                                <p class="experience-company">Brainspired Labs Pvt. Ltd.</p>
+                            </div>
+                        </div>
+                        <span class="experience-period">Jan 2025 – Present</span>
+                    </div>
+                    <div class="experience-details" id="embedded-details" style="display: none;">
+                        <ul class="details-list">
+                            <li>Successfully integrated a dual 16-bit DAC with STM32H753ZI via I2C, ensuring accurate digital-to-analog conversion and analyzing the output waveforms using a digital oscilloscope.</li>
+                            <li>Established UART communication in ESP32, enabling real-time frequency and voltage control through an Android app for seamless user interaction.</li>
+                            <li>Implemented the CJMCU-1334 audio DAC with ESP32-S3 using the I2S protocol, enhancing audio signal processing capabilities.</li>
+                            <li>Gained practical experience with the AD5750 evaluation board, utilizing STM32CUBE-IDE, Arduino IDE, and Embedded C for embedded system development.</li>
+                        </ul>
+                    </div>
+                    <button class="view-more-btn" onclick="toggleDetails('embedded-details')">View More</button>
+                </div>
 
-             <div class="experience-card">
-               <img src="brainspired_logo.jpeg" alt="brainspired_logo" class="experience-image">
-               <div class="experience-content">
-                   <div class="experience-header">
-                       <div>
-                           <h3 class="experience-title">Embedded System Intern</h3>
-                           <p class="experience-company">Brainspired Labs Pvt. Ltd.</p>
-                       </div>
-                       <span class="experience-period">Jan 2025 – Present</span>
-                   </div>
-                   <div class="experience-details" id="software-details">
-                       <ul class="details-list">
-                           <li>Successfully integrated a dual 16-bit DAC with STM32H753ZI via I2C, ensuring accurate digital-to-analog conversion and analyzing the output waveforms using a digital oscilloscope.</li>
-                           <li>Established UART communication in ESP32, enabling real-time frequency and voltage control through an Android app for seamless user interaction.</li>
-                           <li>Implemented the CJMCU-1334 audio DAC with ESP32-S3 using the I2S protocol, enhancing audio signal processing capabilities.</li>
-                           <li>Gained practical experience with the AD5750 evaluation board, utilizing STM32CUBE-IDE, Arduino IDE, and Embedded C for embedded system development.</li>
-                       </ul>
-                       <!-- <a href="https://drive.google.com/file/d/16Qo8G9USD8xwp6tUDGBWDm3CAUTAhRdB/view?usp=sharing" target="_blank" class="certificate-link">
-                           <i class="fas fa-certificate"></i> Certificate
-                       </a> -->
-                   </div>
-                   <button class="view-more-btn" onclick="toggleDetails('software-details')">View More</button>
-               </div>
-           </div>
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="experience-header">
+                        <div style="display: flex; align-items: center;">
+                            <img src="./assets/images/horizon.jpeg" alt="Horizon Mars Rover" class="experience-image">
+                            <div>
+                                <h3 class="experience-title">Software Developer Intern</h3>
+                                <p class="experience-company">Horizon Mars Rover Team, CUSAT</p>
+                            </div>
+                        </div>
+                        <span class="experience-period">Nov 2023 – Present</span>
+                    </div>
+                    <div class="experience-details" id="software-details" style="display: none;">
+                        <ul class="details-list">
+                            <li>Developed a Unified Robotics Description Format (URDF) file to define the visual, geometric, and kinematic properties of a robotic arm.</li>
+                            <li>Utilized URDF and XML to design and structure the robotic arm's software framework.</li>
+                            <li>Achieved successful control and operation of the robotic arm using Arduino Due and servo motors, integrated with Robot Operating System (ROS).</li>
+                            <li><strong>Technologies used:</strong> C++, ROS 2 (Humble), Linux, Arduino IDE.</li>
+                        </ul>
+                        <a href="https://drive.google.com/file/d/16Qo8G9USD8xwp6tUDGBWDm3CAUTAhRdB/view?usp=sharing" target="_blank" class="certificate-link">
+                            <i class="fas fa-certificate"></i> Certificate
+                        </a>
+                    </div>
+                    <button class="view-more-btn" onclick="toggleDetails('software-details')">View More</button>
+                </div>
 
-
-   
-           
-             <!-- Software Developer Intern Card -->
-             <div class="experience-card">
-                 <img src="horizon.jpeg" alt="Software Developer Intern" class="experience-image">
-                 <div class="experience-content">
-                     <div class="experience-header">
-                         <div>
-                             <h3 class="experience-title">Software Developer Intern</h3>
-                             <p class="experience-company">Horizon Mars Rover Team, CUSAT</p>
-                         </div>
-                         <span class="experience-period">Nov 2023 – Present</span>
-                     </div>
-                     <div class="experience-details" id="software-details">
-                         <ul class="details-list">
-                             <li>Developed a Unified Robotics Description Format (URDF) file to define the visual, geometric, and kinematic properties of a robotic arm.</li>
-                             <li>Utilized URDF and XML to design and structure the robotic arm's software framework.</li>
-                             <li>Achieved successful control and operation of the robotic arm using Arduino Due and servo motors, integrated with Robot Operating System (ROS).</li>
-                             <li><strong>Technologies used:</strong> C++, ROS 2 (Humble), Linux, Arduino IDE.</li>
-                         </ul>
-                         <a href="https://drive.google.com/file/d/16Qo8G9USD8xwp6tUDGBWDm3CAUTAhRdB/view?usp=sharing" target="_blank" class="certificate-link">
-                             <i class="fas fa-certificate"></i> Certificate
-                         </a>
-                     </div>
-                     <button class="view-more-btn" onclick="toggleDetails('software-details')">View More</button>
-                 </div>
-             </div>
-     
-             <!-- AI - ML Intern Card -->
-             <div class="experience-card">
-
-                 <img src="ibms.png" alt="AI - ML Intern" class="mt-3 ibm experience-image">
-
-                 <div class="experience-content">
-                     <div class="experience-header">
-                         <div>
-                             <h3 class="experience-title">AI - ML Intern</h3>
-                             <p class="experience-company">IBM Skillsbuild</p>
-                         </div>
-                         <span class="experience-period">June 2024 – July 2024</span>
-                     </div>
-                     <div class="experience-details" id="ai-details">
-                         <ul class="details-list">
-                             <li>Gained a strong foundation in Neural Networks, NLP, LLMs, and GenAI.</li>
-                             <li>Developed a fine-tuned chatbot using IBM Watson Studio.</li>
-                             <li>Created a machine learning model for kidney stone detection.</li>
-                             <li>Enhanced system reliability with IBM automation tools.</li>
-                             <li>Customized the chatbot for the Food-Match web portal.</li>
-                             <li><strong>Technologies used:</strong> IBM Watson Studio, CSV, EJS, CSS, Bootstrap, Node.js, Express.js, MongoDB Atlas.</li>
-                         </ul>
-                         <a href="https://drive.google.com/file/d/1aK0EbJBm1C5vrsDfGfAef-HeZIFYubfa/view?usp=sharing" target="_blank" class="certificate-link">
-                             <i class="fas fa-certificate"></i> Certificate
-                         </a>
-                     </div>
-                     <button class="view-more-btn" onclick="toggleDetails('ai-details')">View More</button>
-                 </div>
-             </div>
-         </div>
-     </section>
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="experience-header">
+                        <div style="display: flex; align-items: center;">
+                            <img src="./assets/images/ibms.png" alt="IBM Skillsbuild" class="experience-image">
+                            <div>
+                                <h3 class="experience-title">AI - ML Intern</h3>
+                                <p class="experience-company">IBM Skillsbuild</p>
+                            </div>
+                        </div>
+                        <span class="experience-period">June 2024 – July 2024</span>
+                    </div>
+                    <div class="experience-details" id="ai-details" style="display: none;">
+                        <ul class="details-list">
+                            <li>Gained a strong foundation in Neural Networks, NLP, LLMs, and GenAI.</li>
+                            <li>Developed a fine-tuned chatbot using IBM Watson Studio.</li>
+                            <li>Created a machine learning model for kidney stone detection.</li>
+                            <li>Enhanced system reliability with IBM automation tools.</li>
+                            <li>Customized the chatbot for the Food-Match web portal.</li>
+                            <li><strong>Technologies used:</strong> IBM Watson Studio, CSV, EJS, CSS, Bootstrap, Node.js, Express.js, MongoDB Atlas.</li>
+                        </ul>
+                        <a href="https://drive.google.com/file/d/1aK0EbJBm1C5vrsDfGfAef-HeZIFYubfa/view?usp=sharing" target="_blank" class="certificate-link">
+                            <i class="fas fa-certificate"></i> Certificate
+                        </a>
+                    </div>
+                    <button class="view-more-btn" onclick="toggleDetails('ai-details')">View More</button>
+                </div>
+            </div>
+        </section>
      
 
-   
-      <!-- Projects Sections -->
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-right">Featured Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project Card 1 -->
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-image">
+                            <img src="./assets/images/WasteBuddy_Logo.jpeg" alt="WasteBuddy Logo">
+                            <div class="overlay">
+                                <a href="https://kh-05-2025.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-white font-semibold text-lg">
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">WasteBuddy</h3>
+                            <p class="project-description">
+                                WasteBuddy is an AI-powered platform that transforms domestic waste into resources through smart recycling, AI recognition, and a waste marketplace. It optimizes collection and rewards users for responsible disposal. ♻️🌍
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Gemini Vision Model</span>
+                                <span class="tech-tag">Node.js & Express.js</span>
+                                <span class="tech-tag">MongoDB Atlas</span>
+                                <span class="tech-tag">Socket.io</span>
+                                <span class="tech-tag">Cloudinary</span>
+                            </div>
+                            <a href="https://github.com/ar1701/Preventive-AI" class="project-link">
+                                View Project
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
 
-      <!-- Project Card 1 -->
+                    <!-- Project Card 2 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-image">
+                            <img src="./assets/images/preventive ai.png" alt="Preventive AI">
+                            <div class="overlay">
+                                <a href="https://genai-ai-cancer-detection.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-white font-semibold text-lg">
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Preventive AI</h3>
+                            <p class="project-description">
+                                An AI platform combining medical imaging, genomic data, and EHRs for early cancer detection and personalized treatment insights.
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Supervised ML</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">MongoDB Atlas</span>
+                                <span class="tech-tag">TensorFlow</span>
+                            </div>
+                            <a href="https://github.com/ar1701/Preventive-AI" class="project-link">
+                                View Project
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
 
-      <section id="projects" class="py-20">
-         <div class="container mx-auto px-6">
-         <h2 class="text-3xl font-bold mb-12" data-aos="fade-right">
-            Featured Projects
-         </h2>
-         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="group bg-gray-800/50 rounded-lg overflow-hidden" data-aos="fade-up">
-               <div class="relative overflow-hidden">
-                  <a href="https://kh-05-2025.onrender.com/" target="_blank" rel="noopener noreferrer">
-                  <img
-                     src="WasteBuddy_Logo.jpeg"
-                     alt="WasteBuddy_Logo"
-                     class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                     />
-                  </a>
-                  <!-- Overlay with Visit Site -->
-                  <div class="overlay flex items-center justify-center opacity-0">
-                     <a
-                        href="https://kh-05-2025.onrender.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-white font-semibold text-lg inline-flex items-center"
-                        >
-                        Visit Site
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           class="h-5 w-5 ml-1"
-                           viewBox="0 0 24 24"
-                           fill="currentColor"
-                           >
-                           <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/>
-                           <path
-                              d="M5 5h8v2H5v10h10v-8h2v10H5V5z"
-                              />
-                        </svg>
-                     </a>
-                  </div>
-               </div>
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold mb-2">WasteBuddy</h3>
-                  <p class="text-gray-400 mb-4">
-                     WasteBuddy is an AI-powered platform that transforms domestic waste into resources through smart recycling, AI recognition, and a waste marketplace. It optimizes collection and rewards users for responsible disposal. ♻️🌍
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-4">
-                     <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">Python</span>
-                     <span class="text-xs px-2 py-1 bg-purple-500/20 text-red-400 rounded-full">Gemini Vision Model</span>
-                     <span class="text-xs px-2 py-1 bg-orange-500/20 text-green-400 rounded-full">Nodejs & Expresjs</span>
-                     <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Groclake & Plotch.ai</span>
-                     <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">MongoDB Atlas</span>
-                     <span class="text-xs px-2 py-1 bg-yellow-500/20 text-green-400 rounded-full">Socket.io</span>
-                     <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Render & Cloudinary</span>
-                  </div>
-                  <a href="https://github.com/ar1701/Preventive-AI" class="inline-flex items-center text-blue-400 hover:text-blue-300">
-                     View Project
-                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                     </svg>
-                  </a>
-               </div>
+                    <!-- Project Card 3 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-image">
+                            <img src="./assets/images/Diksha_logo.jpeg" alt="Saarthi">
+                            <div class="overlay">
+                                <a href="https://youtu.be/Fog1SV_V9mk" target="_blank" rel="noopener noreferrer" class="text-white font-semibold text-lg">
+                                    See Demo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Saarthi</h3>
+                            <p class="project-description">
+                                Built a full stack application offering free educational tools, including problem-solving resources, an NEP syllabus generator, AI chatbot, grading system, language translator and more.
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">Gemini API</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">MongoDB Atlas</span>
+                                <span class="tech-tag">Vertex AI</span>
+                            </div>
+                            <a href="https://github.com/ar1701/Saarthi" class="project-link">
+                                View Project
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="project-image">
+                            <img src="./assets/images/foodmatch.png" alt="Food Match">
+                            <div class="overlay">
+                                <a href="https://food-match-ugwh.onrender.com/listings" target="_blank" rel="noopener noreferrer" class="text-white font-semibold text-lg">
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Food - Match</h3>
+                            <p class="project-description">
+                                Food-Match is a full-stack project enabling users to log in, add, search, review, and modify recipes, integrating Food API with Axios and supporting CRUD operations.
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">Ninja API</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">MongoDB Atlas</span>
+                            </div>
+                            <a href="https://github.com/ar1701/Food-Match" class="project-link">
+                                View Project
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="project-image">
+                            <img src="./assets/images/demo.gif" alt="Mobile Robot Simulation">
+                            <div class="overlay">
+                                <a href="https://github.com/ar1701/Mobile-Robot-Simulation" target="_blank" rel="noopener noreferrer" class="text-white font-semibold text-lg">
+                                    See Demo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Mobile Robot Simulation</h3>
+                            <p class="project-description">
+                                This project enables real-time 2D/3D mobile robot simulation with TF, Gazebo, SLAM, and Nav2 for navigation and obstacle avoidance. It includes sensor simulations and customizable robot parameters.
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">ROS2 - Humble</span>
+                                <span class="tech-tag">NAV2</span>
+                                <span class="tech-tag">SLAM</span>
+                                <span class="tech-tag">URDF</span>
+                                <span class="tech-tag">Gazebo</span>
+                            </div>
+                            <a href="https://github.com/ar1701/Mobile-Robot-Simulation" class="project-link">
+                                View Project
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 6 -->
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="project-image">
+                            <img src="./assets/images/pms.png" alt="Placement Management System">
+                            <div class="overlay">
+                                <a href="https://placement-management-system-1-rdwj.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-white font-semibold text-lg">
+                                    Visit Site
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Placement Management System</h3>
+                            <p class="project-description">
+                                It is the go-to platform for CUSAT students, providing updates on company visits, placement shortlists, and personalized assignments. Stay prepared with tailored timelines and requirements!
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Gemini API</span>
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB Atlas</span>
+                                <span class="tech-tag">Cloudinary</span>
+                            </div>
+                            <a href="https://github.com/ar1701/Placement-Management-System" class="project-link">
+                                View Project
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
+        </section>
+        <!-- Positions of Responsibility Section -->
+        <section id="responsibility" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-right">Positions of Responsibility</h2>
+                <div class="responsibility-grid">
+                    <!-- Horizon Mars Rover Card -->
+                    <div class="responsibility-card" data-aos="fade-up">
+                        <div class="responsibility-header">
+                            <a href="https://www.linkedin.com/company/horizon-mars-rover-team/posts/?feedView=all">
+                                <img class="responsibility-logo" src="./assets/images/horizon.jpeg" alt="Horizon Mars Rover">
+                            </a>
+                            <h3 class="responsibility-title">Team Lead, Horizon Mars Rover Team</h3>
+                        </div>
+                        <p class="responsibility-description">
+                            I oversee and coordinate all aspects of developing a Mars Rover. My role includes setting goals, assigning tasks, facilitating communication, and ensuring collaboration across mechanical, electronics, and software teams to achieve a high-performing, cohesive rover design.
+                        </p>
+                    </div>
 
-
-
-
-
-            <!-- Project Card 2 -->
-
-
-
-            <div class="group bg-gray-800/50 rounded-lg overflow-hidden" data-aos="fade-up">
-               <div class="relative overflow-hidden">
-                  <a href="https://genai-ai-cancer-detection.onrender.com/" target="_blank" rel="noopener noreferrer">
-                  <img
-                     src="./preventive ai.png"
-                     alt="Preventive AI"
-                     class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                     />
-                  </a>
-                  <!-- Overlay with Visit Site -->
-                  <div class="overlay flex items-center justify-center opacity-0">
-                     <a
-                        href="https://genai-ai-cancer-detection.onrender.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-white font-semibold text-lg inline-flex items-center"
-                        >
-                        Visit Site
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           class="h-5 w-5 ml-1"
-                           viewBox="0 0 24 24"
-                           fill="currentColor"
-                           >
-                           <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/>
-                           <path
-                              d="M5 5h8v2H5v10h10v-8h2v10H5V5z"
-                              />
-                        </svg>
-                     </a>
-                  </div>
-               </div>
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold mb-2">Preventive AI</h3>
-                  <p class="text-gray-400 mb-4">
-                     An AI platform combining medical imaging, genomic data, and EHRs for early cancer detection and personalized treatment insights.
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-4">
-                     <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">Python</span>
-                     <span class="text-xs px-2 py-1 bg-purple-500/20 text-red-400 rounded-full">Supervised ML</span>
-                     <span class="text-xs px-2 py-1 bg-orange-500/20 text-green-400 rounded-full">Node.js</span>
-                     <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Express.js</span>
-                     <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">MongoDB Atlas</span>
-                     <span class="text-xs px-2 py-1 bg-yellow-500/20 text-green-400 rounded-full">TensorFlow Serving</span>
-                  </div>
-                  <a href="https://github.com/ar1701/Preventive-AI" class="inline-flex items-center text-blue-400 hover:text-blue-300">
-                     View Project
-                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                     </svg>
-                  </a>
-               </div>
+                    <!-- IEEE Card -->
+                    <div class="responsibility-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="responsibility-header">
+                            <a href="https://www.linkedin.com/company/ieee-cusat-sb/posts/?feedView=all">
+                                <img class="responsibility-logo" src="./assets/images/ieee.png" alt="IEEE">
+                            </a>
+                            <h3 class="responsibility-title">SIG AI Lead, IEEE Execom'24</h3>
+                        </div>
+                        <p class="responsibility-description">
+                            Responsible for organizing AI-related tech events on campus and collaborated with other leads to ensure their success. I also conducted sessions for junior students to introduce them to Artificial Intelligence and Machine Learning, helping them build foundational knowledge in these fields.
+                        </p>
+                    </div>
+                </div>
             </div>
+        </section>
 
+        <!-- Achievements Section -->
+        <section id="achievements" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-right">Achievements</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card" data-aos="fade-up">
+                        <div class="achievement-icon">
+                            <img src="./assets/images/Coding.png" alt="Coding Icon">
+                        </div>
+                        <h3 class="achievement-title">Participated in 10 Hackathons</h3>
+                        <div class="achievement-description">
+                            <ul>
+                                <li>2 x Hackathon Winner</li>
+                                <li>1 x Runner Up</li>
+                                <li>1 x 3rd Position</li>
+                                <li>1 x Jury Choice Award Winner at <strong>Accenture (AIC)</strong></li>
+                            </ul>
+                        </div>
+                    </div>
 
-                 <!-- Project Card 3 -->
-            <div class="group bg-gray-800/50 rounded-lg overflow-hidden" data-aos="fade-up">
-               <div class="relative overflow-hidden">
-                  <a href="https://youtu.be/Fog1SV_V9mk" target="_blank" rel="noopener noreferrer">
-                  <img
-                     src="./Diksha_logo.jpeg"
-                     alt="saarthi"
-                     class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                     />
-                  </a>
-                 
-                  <div class="overlay flex items-center justify-center opacity-0">
-                     <a
-                        href="https://youtu.be/Fog1SV_V9mk"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-white font-semibold text-lg inline-flex items-center"
-                        >
-                        See Demo
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           class="h-5 w-5 ml-1"
-                           viewBox="0 0 24 24"
-                           fill="currentColor"
-                           >
-                           <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/>
-                           <path
-                              d="M5 5h8v2H5v10h10v-8h2v10H5V5z"
-                              />
-                        </svg>
-                     </a>
-                  </div>
-               </div>
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold mb-2">Saarthi</h3>
-                  <p class="text-gray-400 mb-4">
-                    Built a full stack application offering free educational
-                    tools, including problem-solving resources, an NEP
-                    syllabus generator, AI chatbot, grading system, language translator and more.
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-4">
-                     <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">Bootstrap</span>
-                     <span class="text-xs px-2 py-1 bg-purple-500/20 text-red-400 rounded-full">Gemini API</span>
-                     <span class="text-xs px-2 py-1 bg-orange-500/20 text-green-400 rounded-full">Groclake</span>
-                     <span class="text-xs px-2 py-1 bg-orange-500/20 text-green-400 rounded-full">Node.js</span>
-                     <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Express.js</span>
-                     <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">MongoDB Atlas</span>
-                     <span class="text-xs px-2 py-1 bg-yellow-500/20 text-blue-400 rounded-full">Vertex AI</span>
-                     <span class="text-xs px-2 py-1 bg-yellow-500/20 text-blue-400 rounded-full">Plotch AI</span>
+                    <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="achievement-icon">
+                            <img src="./assets/images/India Flag.png" alt="India Flag">
+                        </div>
+                        <h3 class="achievement-title">Represented India</h3>
+                        <p class="achievement-description">
+                            Represented INDIA at European Rover Challenge, 2024, <strong>Poland - Robotics Competition</strong>. Team name: Horizon (World Rank 18th)
+                        </p>
+                    </div>
 
-                  </div>
-                  <a href="https://github.com/ar1701/Saarthi" class="inline-flex items-center text-blue-400 hover:text-blue-300">
-                     View Project
-                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                     </svg>
-                  </a>
-               </div>
+                    <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="achievement-icon">
+                            <img src="./assets/images/Study.png" alt="Study Icon">
+                        </div>
+                        <h3 class="achievement-title">Top 10% in the batch</h3>
+                        <p class="achievement-description">
+                            Maintained <strong>9+ GPA</strong> for 6 consecutive semesters.
+                        </p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-
-
-                 <!-- Project Card 4 -->
-
-                 <div class="group bg-gray-800/50 rounded-lg overflow-hidden" data-aos="fade-up">
-                  <div class="relative overflow-hidden">
-                     <a href="https://food-match-ugwh.onrender.com/listings" target="_blank" rel="noopener noreferrer">
-                     <img
-                        src="./foodmatch.png"
-                        alt="Food Match"
-                        class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                        />
-                     </a>
-                     <!-- Overlay with Visit Site -->
-                     <div class="overlay flex items-center justify-center opacity-0">
-                        <a
-                           href="https://food-match-ugwh.onrender.com/listings"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="text-white font-semibold text-lg inline-flex items-center"
-                           >
-                           Visit Site
-                           <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-5 w-5 ml-1"
-                              viewBox="0 0 24 24"
-                              fill="currentColor"
-                              >
-                              <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/>
-                              <path
-                                 d="M5 5h8v2H5v10h10v-8h2v10H5V5z"
-                                 />
-                           </svg>
+        <!-- Contact Section -->
+        <section id="contact" class="section section-alt">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
+                    <p class="contact-description" data-aos="fade-up" data-aos-delay="100">
+                        I'm always interested in hearing about new opportunities, interesting projects, or just connecting with fellow developers. Feel free to reach out!
+                    </p>
+                    <div class="contact-buttons" data-aos="fade-up" data-aos-delay="200">
+                        <a href="mailto:ayushrajj30@gmail.com" class="btn btn-primary">
+                            Get in Touch
+                            <i class="fas fa-arrow-right"></i>
                         </a>
-                     </div>
-                  </div>
-                  <div class="p-6">
-                     <h3 class="text-xl font-semibold mb-2">Food - Match</h3>
-                     <p class="text-gray-400 mb-4">
-                       Food-Match is a full-stack project enabling users to log in, add, search, review, and modify recipes, integrating Food API with Axios and supporting CRUD operations.
-                     </p>
-                     <div class="flex flex-wrap gap-2 mb-4">
-                       <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">Bootstrap</span>
-                       <span class="text-xs px-2 py-1 bg-purple-500/20 text-red-400 rounded-full">Ninja API</span>
-                       <span class="text-xs px-2 py-1 bg-orange-500/20 text-green-400 rounded-full">Render</span>
-                       <span class="text-xs px-2 py-1 bg-orange-500/20 text-green-400 rounded-full">Node.js</span>
-                       <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Express.js</span>
-                       <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">MongoDB Atlas</span>
-                     </div>
-                     <a href="https://github.com/ar1701/Food-Match" class="inline-flex items-center text-blue-400 hover:text-blue-300">
-                        View Project
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                        </svg>
-                     </a>
-                  </div>
-               </div>
-   
-
-                 <!-- Project Card 5 -->
-
-                 <div class="group bg-gray-800/50 rounded-lg overflow-hidden" data-aos="fade-up">
-                  <div class="relative overflow-hidden">
-                     <a href="https://github.com/ar1701/Mobile-Robot-Simulation" target="_blank" rel="noopener noreferrer">
-                     <img
-                        src="demo.gif"
-                        class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                        />
-                     </a>
-                     <!-- Overlay with Visit Site -->
-                     <div class="overlay flex items-center justify-center opacity-0">
-                        <a
-                           href="demo.gif"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="text-white font-semibold text-lg inline-flex items-center"
-                           >
-                           See Demo
-                           <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-5 w-5 ml-1"
-                              viewBox="0 0 24 24"
-                              fill="currentColor"
-                              >
-                              <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/>
-                              <path
-                                 d="M5 5h8v2H5v10h10v-8h2v10H5V5z"
-                                 />
-                           </svg>
+                        <a href="/Ayush Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            Download Resume
+                            <i class="fas fa-download"></i>
                         </a>
-                     </div>
-                  </div>
-                  <div class="p-6">
-                     <h3 class="text-xl font-semibold mb-2">Mobile Robot Simulation</h3>
-                     <p class="text-gray-400 mb-4">
-                        This project enables real-time 2D/3D mobile robot simulation with TF, Gazebo, SLAM, and Nav2 for navigation and obstacle avoidance. It includes sensor simulations (lidar, cameras), and customizable robot parameters. Integrates with ROS2 for advanced features.
-                     </p>
-                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">ROS2 - Humble</span>
-                        <span class="text-xs px-2 py-1 bg-purple-500/20 text-red-400 rounded-full">NAV2</span>
-                        <span class="text-xs px-2 py-1 bg-orange-500/20 text-green-400 rounded-full">SLAM</span>
-                        <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">URDF</span>
-                        <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Gazebo</span>
-                       
-                     </div>
-                     <a href="https://github.com/ar1701/Mobile-Robot-Simulation" class="inline-flex items-center text-blue-400 hover:text-blue-300">
-                        View Project
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                        </svg>
-                     </a>
-                  </div>
-               </div>
-      
-
-
-
-
-
-                  <!-- Project Card 6 -->
-
-
-                 <div class="group bg-gray-800/50 rounded-lg overflow-hidden" data-aos="fade-up">
-                  <div class="relative overflow-hidden">
-                     <a href="https://placement-management-system-1-rdwj.onrender.com/" target="_blank" rel="noopener noreferrer">
-                     <img
-                        src="./pms.png"
-                        alt="HackMatch"
-                        class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                        />
-                     </a>
-                     <!-- Overlay with Visit Site -->
-                     <div class="overlay flex items-center justify-center opacity-0">
-                        <a
-                           href="https://placement-management-system-1-rdwj.onrender.com/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="text-white font-semibold text-lg inline-flex items-center"
-                           >
-                           Visit Site
-                           <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="h-5 w-5 ml-1"
-                              viewBox="0 0 24 24"
-                              fill="currentColor"
-                              >
-                              <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/>
-                              <path
-                                 d="M5 5h8v2H5v10h10v-8h2v10H5V5z"
-                                 />
-                           </svg>
-                        </a>
-                     </div>
-                  </div>
-                  <div class="p-6">
-                     <h3 class="text-xl font-semibold mb-2">Placement Management System</h3>
-                     <p class="text-gray-400 mb-4">
-                      It is the go-to platform for CUSAT students, providing updates on company visits, placement shortlists, and personalized assignments. Stay prepared with tailored timelines and requirements!                     </p>
-                     <div class="flex flex-wrap gap-2 mb-4">
-                      <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Gemini API</span>
-                        <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">HTML</span>
-                        <span class="text-xs px-2 py-1 bg-purple-500/20 text-red-400 rounded-full">CSS / Bootstrap</span>
-                        <span class="text-xs px-2 py-1 bg-orange-500/20 text-green-400 rounded-full">Node.js</span>
-                        <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Express.js</span>
-                        <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Render / Netlify</span>
-                        <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">MongoDB Atlas</span>
-                        <span class="text-xs px-2 py-1 bg-yellow-500/20 text-green-400 rounded-full">Cloudinary</span>
-                     </div>
-                     <a href="https://github.com/ar1701/Placement-Management-System" class="inline-flex items-center text-blue-400 hover:text-blue-300">
-                        View Project
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                        </svg>
-                     </a>
-                  </div>
-               </div>
-
-
-
-                   <!-- Project Card 7 -->
-
-            <div class="group bg-gray-800/50 rounded-lg overflow-hidden" data-aos="fade-up">
-               <div class="relative overflow-hidden">
-                  <a href="https://userauthentication-tedxcusat.onrender.com/" target="_blank" rel="noopener noreferrer">
-                  <img
-                     src="./user.png"
-                     alt="User Authentication System"
-                     class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                     />
-                  </a>
-                  <!-- Overlay with Visit Site -->
-                  <div class="overlay flex items-center justify-center opacity-0">
-                     <a
-                        href="https://userauthentication-tedxcusat.onrender.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-white font-semibold text-lg inline-flex items-center"
-                        >
-                        Visit Site
-                        <svg
-                           xmlns="http://www.w3.org/2000/svg"
-                           class="h-5 w-5 ml-1"
-                           viewBox="0 0 24 24"
-                           fill="currentColor"
-                           >
-                           <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/>
-                           <path
-                              d="M5 5h8v2H5v10h10v-8h2v10H5V5z"
-                              />
-                        </svg>
-                     </a>
-                  </div>
-               </div>
-               <div class="p-6">
-                  <h3 class="text-xl font-semibold mb-2">User Authentication System - TedXCUSAT</h3>
-                  <p class="text-gray-400 mb-4">
-                    Built a full-stack, responsive user authentication website
-                    with secure registration, login, and profile management
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Render</span>
-                    <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">EJS</span>
-                    <span class="text-xs px-2 py-1 bg-purple-500/20 text-red-400 rounded-full">CSS / Bootstrap</span>
-                    <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">MongoDB Atlas</span>
-                    <span class="text-xs px-2 py-1 bg-orange-500/20 text-green-400 rounded-full">Node.js</span>
-                    <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Express.js</span>
-                 </div>
-                  <a href="https://github.com/ar1701/UserAuthentication-TedxCUSAT?tab=readme-ov-file" class="inline-flex items-center text-blue-400 hover:text-blue-300">
-                     View Project
-                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                     </svg>
-                  </a>
-               </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-
-
-            <!-- project - 8 -->
-
-            <div class="group bg-gray-800/50 rounded-lg overflow-hidden" data-aos="fade-up">
-              <div class="relative overflow-hidden">
-                 <a href="https://hackmatch-7rs6.onrender.com/" target="_blank" rel="noopener noreferrer">
-                 <img
-                    src="./hackmatch.png"
-                    alt="HackMatch"
-                    class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                    />
-                 </a>
-                 <!-- Overlay with Visit Site -->
-                 <div class="overlay flex items-center justify-center opacity-0">
-                    <a
-                       href="https://hackmatch-7rs6.onrender.com/"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="text-white font-semibold text-lg inline-flex items-center"
-                       >
-                       Visit Site
-                       <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 ml-1"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          >
-                          <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/>
-                          <path
-                             d="M5 5h8v2H5v10h10v-8h2v10H5V5z"
-                             />
-                       </svg>
-                    </a>
-                 </div>
-              </div>
-              <div class="p-6">
-                 <h3 class="text-xl font-semibold mb-2">Hack-Match</h3>
-                 <p class="text-gray-400 mb-4">
-                   Developed a platform to help users find ideal hackathon
-                   teammates by matching them based on skill sets &
-                   interests.
-                 </p>
-                 <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">EJS</span>
-                    <span class="text-xs px-2 py-1 bg-purple-500/20 text-red-400 rounded-full">CSS / Bootstrap</span>
-                    <span class="text-xs px-2 py-1 bg-orange-500/20 text-green-400 rounded-full">Node.js</span>
-                    <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Express.js</span>
-                    <span class="text-xs px-2 py-1 bg-blue-500/20 text-green-400 rounded-full">Render</span>
-                    <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">MongoDB Atlas</span>
-                    <span class="text-xs px-2 py-1 bg-yellow-500/20 text-green-400 rounded-full">Cloudinary</span>
-                 </div>
-                 <a href="https://github.com/ar1701/HackMatch" class="inline-flex items-center text-blue-400 hover:text-blue-300">
-                    View Project
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                 </a>
-              </div>
-           </div>
-
-      
-
-         </div>
-      </section>
-      
-      <!-- Positions of Responsibility Section -->
-      <section id="responsibility" class="py-8 md:py-20">
-         <div class="container mx-auto px-4 md:px-6">
-           <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-12" data-aos="fade-right">
-             Positions of Responsibility
-           </h2>
-           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-             <!-- Horizon Mars Rover Card -->
-             <div class="bg-gray-800/50 p-4 md:p-6 rounded-lg" data-aos="fade-up">
-               <div class="flex flex-col sm:flex-row items-start sm:items-center mb-4">
-                 <a href="https://www.linkedin.com/company/horizon-mars-rover-team/posts/?feedView=all" class="mb-2 sm:mb-0">
-                   <img class="w-12 h-12 md:w-16 md:h-16 bg-blue-500/20 rounded-full" src="./horizon.jpeg" alt="Horizon Mars Rover">
-                 </a>
-                 <h3 class="text-lg md:text-xl font-semibold sm:ml-3">
-                   Team Lead, Horizon Mars Rover Team
-                 </h3>
-               </div>
-               <p class="text-sm md:text-base text-gray-300">
-                 I oversee and coordinate all aspects of developing a Mars Rover. My role includes setting goals, assigning tasks, facilitating communication, and ensuring collaboration across mechanical, electronics, and software teams to achieve a high-performing, cohesive rover design.
-               </p>
-             </div>
-       
-             <!-- IEEE Card -->
-             <div class="bg-gray-800/50 p-4 md:p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-               <div class="flex flex-col sm:flex-row items-start sm:items-center mb-4">
-                 <a href="https://www.linkedin.com/company/ieee-cusat-sb/posts/?feedView=all" class="mb-2 sm:mb-0">
-                   <img class="w-16 h-5 md:w-20 md:h-6" src="./ieee.png" alt="IEEE">
-                 </a>
-                 <h3 class="text-lg md:text-xl font-semibold sm:ml-3">
-                   SIG AI Lead, IEEE Execom'24
-                 </h3>
-               </div>
-               <p class="text-sm md:text-base text-gray-300">
-                 Responsible for organizing AI-related tech events on campus and collaborated with other leads to ensure their success. I also conducted sessions for junior students to introduce them to Artificial Intelligence and Machine Learning, helping them build foundational knowledge in these fields.
-               </p>
-             </div>
-           </div>
-         </div>
-       </section>
-
-
-
-
-      
-      <!-- Achievements Section -->
-      <section id="achievements" class="py-20 bg-gray-800/50">
-         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12" data-aos="fade-right">
-               Achievements
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-               <div
-                  class="p-6 bg-gray-700/50 rounded-lg text-center"
-                  data-aos="fade-up"
-                  >
-                  <div
-                     class="w-16 h-16 mx-auto mb-4 bg-blue-500/20 rounded-full flex items-center justify-center"
-                     >
-                     <!-- <svg
-                        class="w-8 h-8 text-blue-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        >
-                        <path
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                           d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                           ></path>
-                     </svg> -->
-                     <img src="./Coding.png" alt="">
-                  </div>
-                  <h3 class="text-xl font-semibold mb-2">Participated in 10 Hackathons</h3>
-                  <p class="text-gray-300">
-                   <ul>
-                     <li>2 x Hackathon Winner</li>
-                     <li>1 x Runner Up</li>
-                     <li>1 x 3rd Position</li>
-                     <li>1 x Jury Choice Award Winner at <b >Accenture (AIC)</b></li>
-                   </ul>
-                  </p>
-               </div>
-               <div
-                  class="p-6 bg-gray-700/50 rounded-lg text-center"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  >
-                  <div
-                     class="w-16 h-16 mx-auto mb-4 bg-emerald-500/20 rounded-full flex items-center justify-center"
-                     >
-                     <!-- <svg
-                        class="w-8 h-8 text-emerald-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        >
-                        <path
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                           d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                           ></path>
-                     </svg> -->
-                     <img src="./India Flag.png" alt="">
-                  </div>
-                  <h3 class="text-xl font-semibold mb-2">Represented India</h3>
-                  <p class="text-gray-300">
-                    Represented INDIA at European Rover Challenge, 2024, <b>Poland -
-                    Robotics Competition</b>. Team name : Horizon (World Rank 18th)
-                  </p>
-               </div>
-               <div
-                  class="p-6 bg-gray-700/50 rounded-lg text-center"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  >
-                  <div
-                     class="w-16 h-16 mx-auto mb-4 bg-purple-500/20 rounded-full flex items-center justify-center"
-                     >
-                     <!-- <svg
-                        class="w-8 h-8 text-purple-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        >
-                        <path
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                           d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                           ></path>
-                     </svg> -->
-                     <img src="./Study.png" alt="">
-                  </div>
-                  <h3 class="text-xl font-semibold mb-2">Top 10% in the batch</h3>
-                  <p class="text-gray-300">
-                     Maintained <b>9+ GPA</b> for 6 consecutive semesters.
-                  </p>
-               </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 Ayush Raj. All rights reserved.</p>
+                <p><i class="fas fa-calendar-alt"></i> Last Updated: <span id="last-updated"></span></p>
             </div>
-         </div>
-      </section>
+        </footer>
+    </div>
 
-      <!-- Contact Section -->
-      <section id="contact" class="bg-gray-800/50 py-20">
-         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">
-               Let's Connect
-            </h2>
-            <p
-               class="text-gray-300 mb-8 max-w-2xl mx-auto"
-               data-aos="fade-up"
-               data-aos-delay="100"
-               >
-               I'm always interested in hearing about new opportunities, interesting
-               projects, or just connecting with fellow developers. Feel free to
-               reach out!
-            </p>
-            <div
-               class="flex justify-center space-x-6"
-               data-aos="fade-up"
-               data-aos-delay="200"
-               >
-               <a
-                  href="mailto:ayushrajj30@gmail.com"
-                  class="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors"
-                  >
-                  Get in Touch
-                  <svg
-                     class="w-4 h-4 ml-2"
-                     fill="none"
-                     stroke="currentColor"
-                     viewBox="0 0 24 24"
-                     >
-                     <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        ></path>
-                  </svg>
-               </a>
-               <a
-                  href="/Ayush Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
-                  >
-                  Download Resume
-                  <svg
-                     class="w-4 h-4 ml-2"
-                     fill="none"
-                     stroke="currentColor"
-                     viewBox="0 0 24 24"
-                     >
-                     <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                        ></path>
-                  </svg>
-               </a>
-            </div>
-         </div>
-      </section>
-
-      
-
-
-      <!-- Footer -->
-      <footer class="py-8 text-center text-gray-400">
-         <p>© 2024 Ayush Raj. All rights reserved.</p>
-          <li><i class="fas fa-calendar-alt"></i> Last Updated: <span id="last-updated"></span></li>
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-               const lastUpdated = new Date(document.lastModified);
-               const day = String(lastUpdated.getDate()).padStart(2, '0');
-               const month = String(lastUpdated.getMonth() + 1).padStart(2, '0');
-               const year = lastUpdated.getFullYear();
-               const formattedDate = `${day}/${month}/${year}`;
-               document.getElementById('last-updated').textContent = formattedDate;
-            });
-          </script>
-
-      </footer>
-      <!-- AOS Animation Library -->
-      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-      <script src="./app.js"></script>
-      </script>
-   </body>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
 </html>
