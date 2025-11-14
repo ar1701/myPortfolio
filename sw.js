@@ -1,5 +1,5 @@
 // Service Worker for Portfolio Website
-const CACHE_NAME = "ayush-portfolio-v4";
+const CACHE_NAME = "ayush-portfolio-v5";
 const urlsToCache = [
   "/",
   "/index.html",
