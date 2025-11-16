@@ -1,5 +1,5 @@
 // Service Worker for Portfolio Website
-const CACHE_NAME = "ayush-portfolio-v5";
+const CACHE_NAME = "ayush-portfolio-v6";
 const urlsToCache = [
   "/",
   "/index.html",
@@ -7,6 +7,7 @@ const urlsToCache = [
   "/assets/js/main.js",
   "/assets/images/Ayush_Raj_CodeCrew.png",
   "/assets/images/coder.gif",
+  "/assets/docs/Ayush_Raj_Resume.pdf",
   "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css",
   "https://unpkg.com/aos@next/dist/aos.css",
