@@ -1,4 +1,4 @@
-## Deployed Link: [Check Out my Portfolio](https://ayushraj.xyz/)
+## Deployed Link: [Check Out my Portfolio](https://devayushraj.com/)
 
 ### My Portfolio Repo
 
