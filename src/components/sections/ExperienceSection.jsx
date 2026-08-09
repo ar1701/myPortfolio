@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, ChevronDown } from 'lucide-react';
+import { Award, ChevronDown, Building, Globe } from 'lucide-react';
 import { experienceData } from '../../data';
 
 const ExperienceSection = () => {
@@ -21,7 +21,15 @@ const ExperienceSection = () => {
                   <img src={exp.image} alt={exp.company} style={{ width: '60px', height: '60px', borderRadius: '12px', objectFit: 'cover', background: '#fff' }} />
                   <div>
                     <h3 style={{ fontSize: '22px', color: 'var(--text-primary)', margin: '0 0 4px 0' }}>{exp.title}</h3>
-                    <div style={{ fontSize: '16px', color: 'var(--accent-primary)', fontWeight: 500 }}>{exp.company}</div>
+                    <div style={{ fontSize: '15px', color: 'var(--accent-primary)', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      {exp.company}
+                      {exp.locationType && (
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', padding: '2px 8px', background: 'rgba(255,255,255,0.1)', borderRadius: '12px', color: 'var(--text-secondary)' }}>
+                          {exp.locationType === 'Remote' ? <Globe size={12} /> : <Building size={12} />}
+                          {exp.locationType}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>

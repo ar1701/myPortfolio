@@ -17,6 +17,7 @@ export const experienceData = [
   {
     title: "Software Engineering Intern (HDM-Db2)",
     company: "IBM India Private Limited",
+    locationType: "On-site",
     period: "Jan 2026 – July 2026",
     image: "/assets/images/ibm_logo.png",
     cert: "https://drive.google.com/file/d/1PZWgOFnvpgH6g8Jg8Gbd3OpTXUbpaNsl/view?usp=sharing",
@@ -29,6 +30,7 @@ export const experienceData = [
   {
     title: "Full Stack Python Intern",
     company: "Smartcard AI",
+    locationType: "Remote",
     period: "July 2025 – Oct 2025",
     image: "/assets/images/smartcard.png",
     cert: "https://drive.google.com/file/d/1RzZZDVjBK3KUibb4xDH1tE76nR7_MUxK/view?usp=sharing",
@@ -41,6 +43,7 @@ export const experienceData = [
   {
     title: "Embedded System Intern",
     company: "Brainspired Labs Pvt. Ltd.",
+    locationType: "On-site",
     period: "Jan 2025 – June 2025",
     image: "/assets/images/brainspired_logo.jpeg",
     cert: "https://drive.google.com/file/d/1RD_n-M_o6cSed2HXY_8mkSnFpU5AQPfN/view?usp=sharing",
@@ -53,6 +56,7 @@ export const experienceData = [
   {
     title: "Software Developer Intern",
     company: "Horizon Mars Rover Team, CUSAT",
+    locationType: "On-site",
     period: "Nov 2023 – June 2025",
     image: "/assets/images/horizon.jpeg",
     cert: "https://drive.google.com/file/d/16Qo8G9USD8xwp6tUDGBWDm3CAUTAhRdB/view?usp=sharing",
@@ -65,6 +69,7 @@ export const experienceData = [
   {
     title: "AI - ML Intern",
     company: "IBM Skillsbuild",
+    locationType: "Remote",
     period: "June 2024 – July 2024",
     image: "/assets/images/ibms.png",
     cert: "https://drive.google.com/file/d/1aK0EbJBm1C5vrsDfGfAef-HeZIFYubfa/view?usp=sharing",
