@@ -1,32 +1,16 @@
-## Deployed Link: [Check Out my Portfolio](https://devayushraj.com/)
+# React + Vite
 
-### My Portfolio Repo
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## Deploy to Vercel
+Currently, two official plugins are available:
 
-This repository is a static portfolio and can be deployed to Vercel either via the Vercel CLI or by connecting the GitHub repository in the Vercel dashboard.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-Quick CLI deploy (one-off / immediate):
+## React Compiler
 
-1. Install the Vercel CLI globally:
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-   npm install -g vercel
+## Expanding the Oxlint configuration
 
-2. Log in to your Vercel account:
-
-   vercel login
-
-3. Deploy the project (follow the interactive prompts):
-
-   vercel --prod
-
-Notes:
-
-- I added `vercel.json` to the repo to instruct Vercel to serve `index.html` and route all paths to it (useful for single-page apps).
-- If you prefer automated deployments, push this repo to GitHub and go to https://vercel.com/new to import the repository and enable automatic deployments on push.
-- No build step is required since this is a static site. Vercel will serve the files from the repository root.
-
-Troubleshooting:
-
-- If assets aren't loading, confirm paths in `index.html` are relative and that `assets/` is present at the repo root.
-- If you need custom headers or redirects, we can add a `vercel.json` route rule or a `static.json` depending on needs.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
