@@ -34,6 +34,9 @@
   --terminal-bg: #050505;
   --terminal-text: #4ade80;
   --terminal-log: #a1a1aa;
+  
+  --btn-primary-text: #000000;
+  --nav-bg: rgba(10, 10, 10, 0.85);
 }
 
 [data-theme="light"] {
@@ -63,6 +66,9 @@
   --mat-shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
   --mat-shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.05);
   --mat-shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.08);
+
+  --btn-primary-text: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.85);
 
   /* Terminal variables are not overridden here because the user requested the terminal stay dark */
 }
@@ -243,7 +249,7 @@ button {
 
 .btn-primary {
   background: var(--text-primary);
-  color: var(--bg-primary);
+  color: var(--btn-primary-text);
 }
 
 .btn-primary:hover {
@@ -798,17 +804,32 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.timeline-card:hover {
+
+@media (hover: hover) {
+  .timeline-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateX(8px);
+  }
+  .timeline-card:hover .timeline-details {
+    max-height: 400px;
+    opacity: 1;
+    margin-top: 16px;
+  }
+}
+
+.timeline-card.expanded {
   border-color: var(--accent-primary);
   transform: translateX(8px);
 }
+
 .timeline-details {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   transition: all 0.4s ease;
 }
-.timeline-card:hover .timeline-details {
+
+.timeline-card.expanded .timeline-details {
   max-height: 400px;
   opacity: 1;
   margin-top: 16px;
