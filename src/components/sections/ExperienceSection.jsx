@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award } from 'lucide-react';
+import { Award, ChevronDown } from 'lucide-react';
 import { experienceData } from '../../data';
 
 const ExperienceSection = () => {
@@ -26,11 +26,19 @@ const ExperienceSection = () => {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
                   <span className="badge badge-info">{exp.period}</span>
-                  {exp.cert && (
-                    <a href={exp.cert} target="_blank" rel="noreferrer" style={{ fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--text-secondary)' }}>
-                      <Award size={14} /> View Certificate
-                    </a>
-                  )}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    {exp.cert && (
+                      <a href={exp.cert} target="_blank" rel="noreferrer" style={{ fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--text-secondary)' }} onClick={(e) => e.stopPropagation()}>
+                        <Award size={14} /> View Certificate
+                      </a>
+                    )}
+                    <button 
+                      style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '4px' }}
+                      aria-label="Toggle Details"
+                    >
+                      <ChevronDown size={20} style={{ transform: expandedIdx === idx ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }} />
+                    </button>
+                  </div>
                 </div>
               </div>
               

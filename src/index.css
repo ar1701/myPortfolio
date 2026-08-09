@@ -825,7 +825,7 @@ button {
 .timeline-details {
   max-height: 0;
   opacity: 0;
-  overflow: hidden;
+  overflow-y: auto;
   transition: all 0.4s ease;
 }
 
@@ -906,6 +906,8 @@ button {
   .gallery-card {
     min-width: 280px;
     max-width: 280px;
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
