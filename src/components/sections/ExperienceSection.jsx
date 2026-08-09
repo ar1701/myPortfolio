@@ -21,10 +21,10 @@ const ExperienceSection = () => {
                   <img src={exp.image} alt={exp.company} style={{ width: '60px', height: '60px', borderRadius: '12px', objectFit: 'cover', background: '#fff' }} />
                   <div>
                     <h3 style={{ fontSize: '22px', color: 'var(--text-primary)', margin: '0 0 4px 0' }}>{exp.title}</h3>
-                    <div style={{ fontSize: '15px', color: 'var(--accent-primary)', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ fontSize: '15px', color: 'var(--accent-primary)', fontWeight: 500, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
                       {exp.company}
                       {exp.locationType && (
-                        <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', padding: '2px 8px', background: 'rgba(255,255,255,0.1)', borderRadius: '12px', color: 'var(--text-secondary)' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', padding: '2px 8px', background: 'rgba(255,255,255,0.1)', borderRadius: '12px', color: 'var(--text-secondary)', whiteSpace: 'nowrap', flexShrink: 0 }}>
                           {exp.locationType === 'Remote' ? <Globe size={12} /> : <Building size={12} />}
                           {exp.locationType}
                         </span>
