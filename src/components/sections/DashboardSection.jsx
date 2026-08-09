@@ -17,18 +17,18 @@ const DashboardSection = () => {
       <div className="bento-grid" style={{ marginTop: 'auto', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
         <div className="bento-item" style={{ alignItems: 'center', textAlign: 'center', gap: '8px', background: 'rgba(99, 102, 241, 0.05)' }}>
           <Activity size={32} color="var(--accent-primary)" />
-          <h3 style={{ fontSize: '24px', margin: 0 }}>150+</h3>
+          <h3 style={{ fontSize: '24px', margin: 0 }}>250+</h3>
           <p style={{ color: 'var(--text-secondary)', fontSize: '14px', margin: 0 }}>Problems Solved</p>
         </div>
         <div className="bento-item" style={{ alignItems: 'center', textAlign: 'center', gap: '8px', background: 'rgba(16, 185, 129, 0.05)' }}>
           <Code2 size={32} color="#10b981" />
-          <h3 style={{ fontSize: '24px', margin: 0 }}>5</h3>
+          <h3 style={{ fontSize: '24px', margin: 0 }}>6</h3>
           <p style={{ color: 'var(--text-secondary)', fontSize: '14px', margin: 0 }}>Major Projects</p>
         </div>
         <div className="bento-item" style={{ alignItems: 'center', textAlign: 'center', gap: '8px', background: 'rgba(245, 158, 11, 0.05)' }}>
           <Award size={32} color="#f59e0b" />
-          <h3 style={{ fontSize: '24px', margin: 0 }}>9+</h3>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '14px', margin: 0 }}>GPA Maintained</p>
+          <h3 style={{ fontSize: '24px', margin: 0 }}>9.74</h3>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '14px', margin: 0 }}> School of Engineering, CUSAT - CSE (2022-2026) CGPA </p>
         </div>
       </div>
 

@@ -46,7 +46,7 @@ const ExperienceSection = () => {
                 <div style={{ padding: '16px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid var(--mat-border)' }}>
                   <ul style={{ paddingLeft: '24px', margin: 0, color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '8px', lineHeight: 1.6 }}>
                     {exp.bullets.map((bullet, i) => (
-                      <li key={i}>{bullet}</li>
+                      <li key={i} dangerouslySetInnerHTML={{ __html: bullet }} />
                     ))}
                   </ul>
                 </div>

@@ -21,7 +21,7 @@ export const experienceData = [
     image: "/assets/images/ibm_logo.png",
     cert: "https://drive.google.com/file/d/1PZWgOFnvpgH6g8Jg8Gbd3OpTXUbpaNsl/view?usp=sharing",
     bullets: [
-      "Worked on the Hybrid Data Management (HDM-Db2) project, IBM's unified data platform for managing and accessing data across multiple environments",
+      "Worked on the <strong>HYBRID DATA MANAGEMENT (HDM-Db2)</strong> project, IBM's unified data platform for managing and accessing data across multiple environments",
       "Contributed to integrating, virtualizing, and governing data across on-premises, private cloud, and public cloud infrastructure",
       "Collaborated with cross-functional engineering teams to optimize data access performance and ensure platform reliability"
     ]
@@ -139,7 +139,7 @@ export const achievementsData = [
   },
   {
     title: "Represented India",
-    icon: "fa-flag",
+    icon: "🇮🇳",
     color: "#3b82f6",
     details: [
       "Represented INDIA at European Rover Challenge, 2024, Poland - Robotics Competition.",
@@ -147,11 +147,17 @@ export const achievementsData = [
     ]
   },
   {
-    title: "Top 10% in the batch",
+    title: "My College Highlights",
     icon: "fa-graduation-cap",
     color: "#10b981",
     details: [
-      "Maintained 9+ GPA for 8 consecutive semesters."
+      "School of Engineering, CUSAT - CSE (2022-2026)",
+      "Maintained an exceptional 9.74 CGPA",
+      "Completed 5+ Internships across multiple domains",
+      "Built and deployed 6 Major Projects",
+      "Solved 250+ DSA Problems",
+      "<strong>TEAM LEAD</strong>, Horizon Mars Rover Team: Oversaw and coordinated all aspects of developing a Mars Rover.",
+      "<strong>SIG AI LEAD</strong>, IEEE Execom'24: Organized AI-related tech events on campus and conducted sessions for junior students."
     ]
   }
 ];
