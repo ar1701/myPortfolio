@@ -805,7 +805,7 @@ button {
   transition: all 0.3s ease;
 }
 
-@media (hover: hover) {
+@media (min-width: 769px) {
   .timeline-card:hover {
     border-color: var(--accent-primary);
     transform: translateX(8px);
