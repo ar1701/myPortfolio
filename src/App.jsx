@@ -20,7 +20,8 @@ import {
   User,
   History,
   LayoutDashboard,
-  Download
+  Download,
+  Camera
 } from 'lucide-react';
 
 import DashboardSection from './components/sections/DashboardSection';
@@ -29,6 +30,7 @@ import SkillsSection from './components/sections/SkillsSection';
 import ExperienceSection from './components/sections/ExperienceSection';
 import ProjectsSection from './components/sections/ProjectsSection';
 import AchievementsSection from './components/sections/AchievementsSection';
+import GlimpsesSection from './components/sections/GlimpsesSection';
 
 function App() {
   const [activeTab, setActiveTab] = useState('hero');
@@ -100,7 +102,8 @@ function App() {
     { id: 'skills', label: 'Skills.yml', icon: <FileCode2 size={16} /> },
     { id: 'experience', label: 'Experience.json', icon: <FileJson size={16} /> },
     { id: 'projects', label: 'Projects.tsx', icon: <FolderOpen size={16} /> },
-    { id: 'achievements', label: 'Achievements.md', icon: <Award size={16} /> }
+    { id: 'achievements', label: 'Achievements.md', icon: <Award size={16} /> },
+    { id: 'glimpses', label: 'Glimpses.png', icon: <Camera size={16} /> }
   ];
 
   const renderContentForTab = (tabId) => {
@@ -118,6 +121,9 @@ function App() {
 
       case 'achievements':
         return <AchievementsSection />;
+
+      case 'glimpses':
+        return <GlimpsesSection />;
 
       case 'hero':
       default:

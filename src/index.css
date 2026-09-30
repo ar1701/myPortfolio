@@ -1118,6 +1118,14 @@ button {
   to { transform: translateX(-50%); }
 }
 
+/* Glimpses Marquee */
+.glimpses-marquee-content {
+  animation: scrollText 30s linear infinite;
+}
+.glimpses-marquee-container:hover .glimpses-marquee-content {
+  animation-play-state: paused;
+}
+
 /* Responsive Omni-Grid */
 @media (max-width: 1024px) {
   .hero-block { grid-column: span 12; }
